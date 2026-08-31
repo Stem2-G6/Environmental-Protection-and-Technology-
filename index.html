@@ -1,0 +1,2733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Environmental Protection and Technology - Exploring how modern technology can protect the environment and create a sustainable future.">
+
+    <title>Environmental Protection & Technology</title>
+
+
+    <style>
+
+ 
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f4f8f5;
+
+            color: #18352a;
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+        }
+
+
+   
+
+        :root {
+
+            --dark: #0b2e20;
+
+            --forest: #124b34;
+
+            --green: #1f8054;
+
+            --mint: #a9e5c3;
+
+            --light: #eef7f1;
+
+            --white: #ffffff;
+
+            --text: #18352a;
+
+            --muted: #60756a;
+
+            --gold: #d8b85a;
+
+        }
+
+
+ 
+
+        ::selection {
+
+            background: var(--mint);
+
+            color: var(--dark);
+        }
+
+
+     
+
+        nav {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 999;
+
+            width: 100%;
+
+            background: rgba(11, 46, 32, 0.94);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+
+            display: flex;
+
+            justify-content: center;
+
+            overflow-x: auto;
+
+            white-space: nowrap;
+
+            padding: 15px 20px;
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 0.5px;
+
+            margin: 0 13px;
+
+            opacity: 0.85;
+
+            transition: 0.3s;
+
+            flex-shrink: 0;
+        }
+
+
+        nav a:hover {
+
+            color: var(--mint);
+
+            opacity: 1;
+        }
+
+
+        nav a:focus-visible {
+
+            outline: 3px solid var(--gold);
+
+            outline-offset: 4px;
+        }
+
+
+        .hero {
+
+            min-height: 720px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 90px 8%;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    rgba(5, 31, 21, 0.94),
+                    rgba(11, 62, 42, 0.78),
+                    rgba(11, 62, 42, 0.35)
+                ),
+
+                url("Yes.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            overflow: hidden;
+        }
+
+
+        /* Decorative glow */
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+
+            height: 400px;
+
+            background: rgba(141, 236, 179, 0.15);
+
+            border-radius: 50%;
+
+            filter: blur(70px);
+
+            right: -100px;
+
+            top: 80px;
+
+            animation: float 6s ease-in-out infinite;
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+
+            height: 250px;
+
+            border: 1px solid rgba(255,255,255,0.18);
+
+            border-radius: 50%;
+
+            right: 12%;
+
+            bottom: 12%;
+
+            animation: rotate 20s linear infinite;
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 850px;
+        }
+
+
+        .eyebrow {
+
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            border: 1px solid rgba(255,255,255,0.3);
+
+            background: rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(48px, 8vw, 88px);
+
+            line-height: 0.98;
+
+            letter-spacing: -4px;
+
+            max-width: 900px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero h1 span {
+
+            color: var(--mint);
+        }
+
+
+        .hero p {
+
+            font-size: 19px;
+
+            max-width: 680px;
+
+            color: #e5f1e9;
+
+            margin-bottom: 35px;
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .button {
+
+            display: inline-block;
+
+            padding: 13px 23px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .button-primary {
+
+            background: var(--mint);
+
+            color: var(--dark);
+        }
+
+
+        .button-primary:hover {
+
+            transform: translateY(-3px);
+
+            background: white;
+
+            color: var(--dark);
+        }
+
+
+        .button-outline {
+
+            border: 1px solid rgba(255,255,255,0.5);
+
+            color: white;
+
+            background: rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(10px);
+        }
+
+
+        .button-outline:hover {
+
+            background: white;
+
+            color: var(--dark);
+
+            transform: translateY(-3px);
+        }
+
+
+
+
+        .hero-stats {
+
+            position: absolute;
+
+            bottom: 40px;
+
+            right: 8%;
+
+            z-index: 3;
+
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .hero-stat {
+
+            background: rgba(255,255,255,0.09);
+
+            border: 1px solid rgba(255,255,255,0.18);
+
+            backdrop-filter: blur(15px);
+
+            padding: 15px 20px;
+
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+
+        .hero-stat strong {
+
+            display: block;
+
+            font-size: 24px;
+
+            color: var(--mint);
+        }
+
+
+        .hero-stat span {
+
+            font-size: 11px;
+
+            opacity: 0.8;
+        }
+
+
+
+        section {
+
+            padding: 100px 8%;
+        }
+
+
+        .section-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+        }
+
+
+        .section-label {
+
+            color: var(--green);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-title {
+
+            font-size: clamp(35px, 5vw, 55px);
+
+            line-height: 1.1;
+
+            color: var(--dark);
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .section-description {
+
+            color: var(--muted);
+
+            max-width: 700px;
+
+            margin-bottom: 45px;
+        }
+
+
+
+        .intro-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 25px;
+        }
+
+
+        .intro-card {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 22px;
+
+            border: 1px solid #e2ebe5;
+
+            box-shadow: 0 15px 45px rgba(18,75,52,0.07);
+
+            transition: 0.3s;
+        }
+
+
+        .intro-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow: 0 20px 50px rgba(18,75,52,0.12);
+        }
+
+
+        .intro-card.large {
+
+            grid-row: span 2;
+        }
+
+
+        .intro-card h3 {
+
+            font-size: 24px;
+
+            color: var(--forest);
+
+            margin-bottom: 18px;
+        }
+
+
+        .intro-card p {
+
+            color: #52655b;
+
+            margin-bottom: 15px;
+        }
+
+
+        .intro-card a {
+
+            color: var(--green);
+
+            font-weight: bold;
+        }
+
+
+
+        .image-box {
+
+            margin-top: 45px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 25px;
+
+            height: 420px;
+
+            box-shadow: 0 20px 60px rgba(10,40,25,0.18);
+        }
+
+
+        .image-box img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.7s;
+        }
+
+
+        .image-box:hover img {
+
+            transform: scale(1.05);
+        }
+
+
+        .image-caption {
+
+            position: absolute;
+
+            bottom: 20px;
+
+            left: 20px;
+
+            right: 20px;
+
+            padding: 15px 20px;
+
+            color: white;
+
+            background: rgba(5,30,20,0.65);
+
+            backdrop-filter: blur(12px);
+
+            border-radius: 12px;
+
+            font-size: 14px;
+        }
+
+
+
+        .key-section {
+
+            background: var(--dark);
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .key-section .section-title {
+
+            color: white;
+        }
+
+
+        .key-section .section-description {
+
+            color: #bfd2c6;
+        }
+
+
+        .key-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .key-card {
+
+            padding: 28px;
+
+            min-height: 190px;
+
+            border-radius: 18px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.09),
+                rgba(255,255,255,0.03)
+            );
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            transition: 0.3s;
+        }
+
+
+        .key-card:hover {
+
+            transform: translateY(-7px);
+
+            background: rgba(255,255,255,0.12);
+        }
+
+
+        .key-number {
+
+            color: var(--mint);
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .key-card h3 {
+
+            margin: 25px 0 10px;
+
+            color: white;
+
+            font-size: 21px;
+        }
+
+
+        .key-card p {
+
+            color: #bfd2c6;
+
+            font-size: 14px;
+        }
+
+
+
+
+        .problems-section {
+
+            background: #f4f8f5;
+        }
+
+
+        .problem-block {
+
+            display: grid;
+
+            grid-template-columns: 0.3fr 1fr 1fr;
+
+            gap: 25px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .problem-number {
+
+            font-size: 60px;
+
+            font-weight: bold;
+
+            color: #d5e5db;
+
+            line-height: 1;
+        }
+
+
+        .problem-card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            border: 1px solid #e1eae4;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+
+        .problem-card h3 {
+
+            color: var(--dark);
+
+            margin-bottom: 15px;
+
+            font-size: 21px;
+        }
+
+
+        .problem-card p {
+
+            color: var(--muted);
+
+            font-size: 15px;
+        }
+
+
+        .problem-label {
+
+            display: inline-block;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            padding: 5px 9px;
+
+            border-radius: 20px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .problem-label.problem {
+
+            color: #963d3d;
+
+            background: #fae7e7;
+        }
+
+
+        .problem-label.solution {
+
+            color: #17613f;
+
+            background: #ddf3e6;
+        }
+
+
+
+
+        .technology-section {
+
+            background: #e6f2ea;
+        }
+
+
+        .tech-intro {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            gap: 30px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .tech-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .tech-card {
+
+            background: white;
+
+            min-height: 320px;
+
+            padding: 28px 22px;
+
+            border-radius: 20px;
+
+            border: 1px solid #d8e8dd;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.35s;
+        }
+
+
+        .tech-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+
+            height: 120px;
+
+            border-radius: 50%;
+
+            background: var(--mint);
+
+            opacity: 0.35;
+
+            right: -50px;
+
+            top: -50px;
+
+            transition: 0.4s;
+        }
+
+
+        .tech-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 20px 45px rgba(18,75,52,0.13);
+        }
+
+
+        .tech-card:hover::before {
+
+            transform: scale(1.8);
+        }
+
+
+        .tech-icon {
+
+            font-size: 42px;
+
+            margin-bottom: 25px;
+
+            position: relative;
+        }
+
+
+        .tech-card h3 {
+
+            color: var(--dark);
+
+            font-size: 19px;
+
+            margin-bottom: 12px;
+
+            position: relative;
+        }
+
+
+        .tech-card p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            position: relative;
+        }
+
+
+    
+        .featured {
+
+            background: var(--dark);
+
+            color: white;
+        }
+
+
+        .featured-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+
+        .featured h2 {
+
+            font-size: clamp(35px, 5vw, 58px);
+
+            line-height: 1.05;
+
+            margin-bottom: 25px;
+
+            letter-spacing: -2px;
+        }
+
+
+        .featured h2 span {
+
+            color: var(--mint);
+        }
+
+
+        .featured p {
+
+            color: #bfd2c6;
+
+            margin-bottom: 20px;
+        }
+
+
+        .capture-number {
+
+            font-size: 90px;
+
+            font-weight: bold;
+
+            line-height: 1;
+
+            color: var(--mint);
+
+            margin-bottom: 5px;
+        }
+
+
+        .capture-label {
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            font-size: 11px;
+
+            color: #9eb8aa;
+        }
+
+
+        .featured-box {
+
+            padding: 40px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            border-radius: 25px;
+
+            background: rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        .featured-box h3 {
+
+            color: white;
+
+            margin-bottom: 20px;
+        }
+
+
+        .featured-box ul {
+
+            list-style: none;
+        }
+
+
+        .featured-box li {
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+
+            color: #d5e5db;
+        }
+
+
+        .featured-box li:last-child {
+
+            border-bottom: none;
+        }
+
+
+
+        .conclusion {
+
+            background: white;
+        }
+
+
+        .conclusion-box {
+
+            background: linear-gradient(
+                135deg,
+                #e1f2e7,
+                #f7fbf8
+            );
+
+            padding: 55px;
+
+            border-radius: 30px;
+
+            border: 1px solid #d6e8dc;
+        }
+
+
+        .conclusion-box h3 {
+
+            color: var(--forest);
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .conclusion-box p {
+
+            color: #52655b;
+
+            margin-bottom: 25px;
+        }
+
+
+        .thesis {
+
+            border-left: 4px solid var(--green);
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            font-weight: bold;
+
+            color: var(--dark);
+
+            box-shadow: 0 10px 30px rgba(18,75,52,0.07);
+        }
+
+
+
+        .sources {
+
+            background: #f4f8f5;
+        }
+
+
+        .source-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .source {
+
+            background: white;
+
+            padding: 20px 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e1eae4;
+
+            transition: 0.3s;
+        }
+
+
+        .source:hover {
+
+            transform: translateX(5px);
+
+            border-color: var(--mint);
+        }
+
+
+        .source span {
+
+            font-size: 11px;
+
+            color: var(--muted);
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        .source a {
+
+            color: var(--forest);
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        .source a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #061e14;
+
+            color: white;
+
+            padding: 60px 8%;
+
+            text-align: center;
+        }
+
+
+        footer .footer-title {
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+
+        footer p {
+
+            color: #9eb8aa;
+
+            font-size: 14px;
+
+            margin: 5px;
+        }
+
+
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+        }
+
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+
+        @media (max-width: 1000px) {
+
+            .key-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .tech-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .problem-block {
+
+                grid-template-columns:
+                    70px 1fr 1fr;
+            }
+
+
+            .hero-stats {
+
+                display: none;
+            }
+
+        }
+
+
+
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                justify-content: flex-start;
+
+                padding: 12px 8px;
+            }
+
+
+            nav a {
+
+                margin: 0 8px;
+
+                font-size: 12px;
+            }
+
+
+            section {
+
+                padding: 70px 6%;
+            }
+
+
+            .hero {
+
+                min-height: 650px;
+
+                padding: 70px 6%;
+
+                background-position: center;
+            }
+
+
+            .hero h1 {
+
+                letter-spacing: -2px;
+            }
+
+
+            .hero p {
+
+                font-size: 17px;
+            }
+
+
+            .intro-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .intro-card.large {
+
+                grid-row: auto;
+            }
+
+
+            .key-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .problem-block {
+
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+            }
+
+
+            .problem-number {
+
+                font-size: 35px;
+            }
+
+
+            .tech-intro {
+
+                display: block;
+            }
+
+
+            .tech-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .featured-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+
+            .capture-number {
+
+                font-size: 70px;
+            }
+
+
+            .conclusion-box {
+
+                padding: 30px 22px;
+            }
+
+
+            .source-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .image-box {
+
+                height: 300px;
+            }
+
+        }
+
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            * {
+
+                scroll-behavior: auto !important;
+
+                animation: none !important;
+
+                transition: none !important;
+            }
+
+        }
+/* =====================================================
+   MEET THE TEAM
+===================================================== */
+
+.team-section {
+    background: #eef7f1;
+}
+
+.team-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.team-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.team-card {
+    background: white;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    border: 1px solid #dce9e0;
+
+    box-shadow: 0 12px 35px rgba(18, 75, 52, 0.08);
+
+    transition: 0.35s;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: #a9e5c3;
+
+    opacity: 0.35;
+
+    top: -55px;
+    right: -45px;
+
+    transition: 0.4s;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 45px rgba(18, 75, 52, 0.14);
+}
+
+.team-card:hover::before {
+    transform: scale(1.7);
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #dcefe4;
+
+    margin-bottom: 20px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.team-card h3 {
+    color: #0b2e20;
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+
+    position: relative;
+}
+
+.team-role {
+    display: inline-block;
+
+    background: #ddf3e6;
+
+    color: #17613f;
+
+    padding: 6px 13px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    position: relative;
+}
+
+
+/* TEAM - MOBILE */
+
+@media (max-width: 1000px) {
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-photo {
+        width: 140px;
+        height: 140px;
+    }
+
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+ -->
+
+<nav aria-label="Main navigation">
+
+    <a href="#home">HOME</a>
+
+    <a href="#introduction">INTRODUCTION</a>
+
+    <a href="#problems">PROBLEMS</a>
+
+    <a href="#technology">TECHNOLOGY</a>
+
+    <a href="#ccus">CCUS</a>
+
+    <a href="#conclusion">CONCLUSION</a>
+	
+	<a href="#team">TEAM</a>
+	
+    <a href="#sources">SOURCES</a>
+
+</nav>
+
+
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Grade 12 • Enviromental Protection and Technology
+        </div>
+
+
+        <h1>
+            Protecting<br>
+            <span>Nature</span><br>
+            Through Technology.
+        </h1>
+
+
+        <p>
+            Environmental challenges are becoming more complex.
+            Discover how innovation, artificial intelligence,
+            renewable energy, and smart technologies can help
+            create a cleaner and more sustainable future.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#introduction"
+               class="button button-primary">
+                Explore the Research ↓
+            </a>
+
+            <a href="#technology"
+               class="button button-outline">
+                Discover the Solutions
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+        <div class="hero-stat">
+
+            <strong>04</strong>
+
+            <span>Major Problems</span>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+            <strong>05</strong>
+
+            <span>Key Technologies</span>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+            <strong>01</strong>
+
+            <span>Shared Planet</span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+
+<section id="introduction">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            01 — Understanding the Issue
+        </div>
+
+
+        <h2 class="section-title">
+            Why does environmental<br>
+            technology matter?
+        </h2>
+
+
+        <p class="section-description">
+            The relationship between technology and the environment
+            is no longer simply about cleaning up pollution. Modern
+            environmental technology focuses on preventing damage,
+            reducing resource consumption, and creating systems that
+            can operate more sustainably.
+        </p>
+
+
+        <div class="intro-grid">
+
+
+            <!-- BACKGROUND -->
+
+            <article class="intro-card large">
+
+                <h3>
+                    A. Background of the Study
+                </h3>
+
+
+                <p>
+                    The rapid acceleration of global industrialization
+                    and urbanization has severely pushed human activity
+                    past safe planetary boundaries.
+                </p>
+
+
+                <p>
+                    Human greenhouse gas emissions and environmental
+                    pressures continue to alter climate systems.
+                    These changes demonstrate the need for approaches
+                    that address environmental problems at their source.
+                </p>
+
+
+                <p>
+                    For insights regarding systemic changes and global
+                    goals, explore the
+                    <a href="https://www.youtube.com/watch?v=M25AWv7cmLU"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        UNFCCC Climate Science Briefing
+                    </a>.
+                </p>
+
+            </article>
+
+
+
+            <!-- PROBLEM -->
+
+            <article class="intro-card">
+
+                <h3>
+                    B. Statement of the Problem
+                </h3>
+
+
+                <p>
+                    Historically, conventional pollution control relied
+                    heavily on "end-of-pipe" treatments.
+                </p>
+
+
+                <p>
+                    These systems capture pollutants after they are
+                    generated, but they do not necessarily address
+                    resource overconsumption.
+                </p>
+
+
+                <p>
+                    Hard-to-abate industrial sectors therefore require
+                    immediate and scalable intervention.
+                </p>
+
+
+                <a href="https://dobetter.esade.edu/en/business-sustainability-trends"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Explore Esade Do Better Insights →
+                </a>
+
+            </article>
+
+
+
+            <!-- SIGNIFICANCE -->
+
+            <article class="intro-card">
+
+                <h3>
+                    C. Significance
+                </h3>
+
+
+                <p>
+                    Modern environmental technology represents a shift
+                    away from simple remediation toward fully integrated,
+                    circular, and predictive digital ecosystems.
+                </p>
+
+
+                <a href="https://www.mdpi.com/2071-1050/17/6"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Explore MDPI Sustainability Research →
+                </a>
+
+            </article>
+
+        </div>
+
+
+
+        <!-- IMAGE -->
+
+        <div class="image-box">
+
+            <img src="Yess.jpg"
+                 alt="Environmental protection and technology">
+
+            <div class="image-caption">
+
+                Technology can become a tool for protecting natural
+                systems when it is designed around sustainability.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="key-section">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            The Big Picture
+        </div>
+
+
+        <h2 class="section-title">
+            Four challenges.<br>
+            One connected future.
+        </h2>
+
+
+        <p class="section-description">
+            Environmental problems are interconnected. Carbon emissions,
+            energy systems, pollution, and agriculture all require
+            technological solutions that work together rather than
+            independently.
+        </p>
+
+
+        <div class="key-grid">
+
+
+            <div class="key-card">
+
+                <div class="key-number">
+                    01 / CARBON
+                </div>
+
+                <h3>
+                    Reduce Emissions
+                </h3>
+
+                <p>
+                    Technologies such as carbon capture can address
+                    emissions from industries where complete
+                    decarbonization is difficult.
+                </p>
+
+            </div>
+
+
+
+            <div class="key-card">
+
+                <div class="key-number">
+                    02 / ENERGY
+                </div>
+
+                <h3>
+                    Smarter Energy
+                </h3>
+
+                <p>
+                    AI and smart-grid technologies can coordinate
+                    renewable energy and changing electricity demand.
+                </p>
+
+            </div>
+
+
+
+            <div class="key-card">
+
+                <div class="key-number">
+                    03 / ECOLOGY
+                </div>
+
+                <h3>
+                    Cleaner Ecosystems
+                </h3>
+
+                <p>
+                    New remediation technologies can help address
+                    persistent pollutants in soil and water.
+                </p>
+
+            </div>
+
+
+
+            <div class="key-card">
+
+                <div class="key-number">
+                    04 / AGRICULTURE
+                </div>
+
+                <h3>
+                    Use Less, Grow More
+                </h3>
+
+                <p>
+                    Precision agriculture can help manage water,
+                    chemicals, and other agricultural resources.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="problems-section"
+         id="problems">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            02 — Problems & Solutions
+        </div>
+
+
+        <h2 class="section-title">
+            From environmental<br>
+            problems to innovation.
+        </h2>
+
+
+        <p class="section-description">
+            Each environmental challenge requires a different
+            technological approach. Below are four major areas where
+            technology can help transform environmental protection.
+        </p>
+
+
+
+        <!-- 01 -->
+
+        <div class="problem-block">
+
+            <div class="problem-number">
+                01
+            </div>
+
+
+            <article class="problem-card">
+
+                <span class="problem-label problem">
+                    The Problem
+                </span>
+
+
+                <h3>
+                    🌍 The Carbon Dilemma
+                </h3>
+
+
+                <p>
+                    Heavy industries release carbon into the atmosphere
+                    faster than natural carbon sinks can absorb it.
+                    Standard efficiency upgrades do not eliminate the
+                    carbon chemically inherent to certain production
+                    processes.
+                </p>
+
+            </article>
+
+
+            <article class="problem-card">
+
+                <span class="problem-label solution">
+                    The Solution
+                </span>
+
+
+                <h3>
+                    ♻️ Carbon Capture
+                </h3>
+
+
+                <p>
+                    Advanced Carbon Capture, Utilization, and Storage
+                    (CCUS) architectures can isolate point-source
+                    carbon dioxide before it reaches the atmosphere.
+                </p>
+
+            </article>
+
+        </div>
+
+
+
+        <!-- 02 -->
+
+        <div class="problem-block">
+
+            <div class="problem-number">
+                02
+            </div>
+
+
+            <article class="problem-card">
+
+                <span class="problem-label problem">
+                    The Problem
+                </span>
+
+
+                <h3>
+                    ⚡ The Energy Footprint
+                </h3>
+
+
+                <p>
+                    Solar and wind resources are expanding rapidly,
+                    but their natural intermittency can strain old,
+                    centralized energy infrastructure.
+                </p>
+
+            </article>
+
+
+            <article class="problem-card">
+
+                <span class="problem-label solution">
+                    The Solution
+                </span>
+
+
+                <h3>
+                    🤖 AI-Powered Energy Systems
+                </h3>
+
+
+                <p>
+                    Artificial intelligence can use predictive machine
+                    learning to dynamically orchestrate decentralized
+                    renewable energy inputs and improve energy
+                    management.
+                </p>
+
+            </article>
+
+        </div>
+
+
+
+        <!-- 03 -->
+
+        <div class="problem-block">
+
+            <div class="problem-number">
+                03
+            </div>
+
+
+            <article class="problem-card">
+
+                <span class="problem-label problem">
+                    The Problem
+                </span>
+
+
+                <h3>
+                    💧 Ecological Contamination
+                </h3>
+
+
+                <p>
+                    Conventional wastewater and soil treatments may
+                    struggle to remove persistent chemicals such as
+                    industrial dyes, heavy metals, and other
+                    micro-pollutants without generating secondary waste.
+                </p>
+
+            </article>
+
+
+            <article class="problem-card">
+
+                <span class="problem-label solution">
+                    The Solution
+                </span>
+
+
+                <h3>
+                    🌱 Bio-Sorbents & Hydrochars
+                </h3>
+
+
+                <p>
+                    Modified hydrochars and targeted bio-sorbents offer
+                    alternative approaches to remediation by helping
+                    stabilize toxic substances in contaminated
+                    environments.
+                </p>
+
+            </article>
+
+        </div>
+
+
+
+        <!-- 04 -->
+
+        <div class="problem-block">
+
+            <div class="problem-number">
+                04
+            </div>
+
+
+            <article class="problem-card">
+
+                <span class="problem-label problem">
+                    The Problem
+                </span>
+
+
+                <h3>
+                    🌾 Agricultural Resource Loss
+                </h3>
+
+
+                <p>
+                    Conventional agriculture and food supply chains
+                    can contribute to water loss, pesticide runoff,
+                    and extensive land degradation.
+                </p>
+
+            </article>
+
+
+            <article class="problem-card">
+
+                <span class="problem-label solution">
+                    The Solution
+                </span>
+
+
+                <h3>
+                    📡 Precision Agriculture
+                </h3>
+
+
+                <p>
+                    IoT sensor networks paired with AI analytics can
+                    monitor soil and crops, helping farmers apply
+                    water and other resources more efficiently.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="technology-section"
+         id="technology">
+
+    <div class="section-container">
+
+        <div class="tech-intro">
+
+            <div>
+
+                <div class="section-label">
+                    03 — Technology in Action
+                </div>
+
+
+                <h2 class="section-title">
+                    Five ways technology<br>
+                    can protect nature.
+                </h2>
+
+            </div>
+
+
+            <p class="section-description">
+
+                From satellites in space to sensors beneath
+                the soil, technology gives us new ways to
+                understand and protect the planet.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="tech-grid">
+
+
+            <!-- 01 -->
+
+            <article class="tech-card">
+
+                <div class="tech-icon">
+                    ☀️
+                </div>
+
+
+                <h3>
+                    Renewable Energy
+                </h3>
+
+
+                <p>
+                    Solar panels and wind turbines replace fossil
+                    fuels to generate cleaner electricity.
+                </p>
+
+            </article>
+
+
+
+            <!-- 02 -->
+
+            <article class="tech-card">
+
+                <div class="tech-icon">
+                    ⚡
+                </div>
+
+
+                <h3>
+                    Smart Grids
+                </h3>
+
+
+                <p>
+                    AI systems balance power use and distribution
+                    in real time to improve energy efficiency.
+                </p>
+
+            </article>
+
+
+
+            <!-- 03 -->
+
+            <article class="tech-card">
+
+                <div class="tech-icon">
+                    🛰️
+                </div>
+
+
+                <h3>
+                    Remote Sensing
+                </h3>
+
+
+                <p>
+                    Satellites and drones can track deforestation,
+                    wildlife, and ocean health.
+                </p>
+
+            </article>
+
+
+
+            <!-- 04 -->
+
+            <article class="tech-card">
+
+                <div class="tech-icon">
+                    🌾
+                </div>
+
+
+                <h3>
+                    Smart Farming
+                </h3>
+
+
+                <p>
+                    IoT sensors help provide crops with appropriate
+                    amounts of water while reducing chemical waste.
+                </p>
+
+            </article>
+
+
+
+            <!-- 05 -->
+
+            <article class="tech-card">
+
+                <div class="tech-icon">
+                    🏭
+                </div>
+
+
+                <h3>
+                    Carbon Capture
+                </h3>
+
+
+                <p>
+                    Systems trap industrial carbon emissions before
+                    they enter the atmosphere.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="featured"
+         id="ccus">
+
+    <div class="featured-container">
+
+
+        <div>
+
+            <div class="section-label">
+                Featured Technology
+            </div>
+
+
+            <h2>
+                Capturing carbon<br>
+                before it reaches <span>the sky.</span>
+            </h2>
+
+
+            <p>
+                Advanced Carbon Capture, Utilization, and Storage
+                (CCUS) architectures can isolate point-source carbon
+                dioxide from industrial processes.
+            </p>
+
+
+            <p>
+                Solutions such as the
+                <a href="https://uop.honeywell.com/en/industry-solutions/gas-processing/gas-treating/co2-fractionation"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="color:#a9e5c3;">
+                    Honeywell UOP CO₂ Fractionation System
+                </a>
+                use specialized temperature and pressure variations
+                to capture CO₂ from industrial gas streams as a
+                high-purity liquid product without freezing.
+            </p>
+
+        </div>
+
+
+
+        <div class="featured-box">
+
+            <div class="capture-number">
+                80%+
+            </div>
+
+
+            <div class="capture-label">
+                CO₂ capture capability described
+                for industrial gas streams
+            </div>
+
+
+            <br>
+
+
+            <h3>
+                Why CCUS matters
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    ✓ Targets point-source emissions
+                </li>
+
+                <li>
+                    ✓ Designed for difficult industrial sectors
+                </li>
+
+                <li>
+                    ✓ Can produce high-purity captured CO₂
+                </li>
+
+                <li>
+                    ✓ Supports broader decarbonization strategies
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="conclusion"
+         id="conclusion">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            04 — Looking Forward
+        </div>
+
+
+        <h2 class="section-title">
+            Technology is a tool.<br>
+            How we use it matters.
+        </h2>
+
+
+        <div class="conclusion-box">
+
+
+            <h3>
+                A. Synthesis of Main Findings
+            </h3>
+
+
+            <p>
+                Environmental technology has evolved far beyond a
+                reactive, localized cleaning toolkit. It now serves
+                as a fundamental system architecture capable of
+                helping decarbonize heavy industry, improve resource
+                efficiency, monitor ecosystems, and address
+                environmental problems.
+            </p>
+
+
+            <p>
+                The future of environmental protection depends not
+                only on developing new technologies but also on
+                integrating them intentionally into energy,
+                industrial, agricultural, and ecological systems.
+            </p>
+
+
+            <h3>
+                B. Final Thesis Statement
+            </h3>
+
+
+            <div class="thesis">
+
+                While technological innovation presents distinct
+                capital, energy, and infrastructure challenges,
+                its intentional integration remains an important
+                pathway for mitigating climate risk, preserving
+                biodiversity, and establishing a truly sustainable
+                economy.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+	<!-- =====================================================
+     MEET THE TEAM
+===================================================== -->
+
+<section class="team-section" id="team">
+
+    <div class="section-container">
+
+        <div class="team-header">
+
+            <div class="section-label">
+                05 — The Team
+            </div>
+
+            <h2 class="section-title">
+                Meet the people<br>
+                behind the project.
+            </h2>
+
+            <p class="section-description" style="margin: 0 auto;">
+                This project was made possible through the
+                collaboration, research, creativity, and technical
+                work of our group members.
+            </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+
+            <!-- ALEX -->
+
+            <article class="team-card">
+
+                <img
+                    src="Alex.jpg"
+                    alt="Alexander C. Romblon Jr."
+                    class="team-photo">
+
+                <h3>
+                    Alexander C. Romblon Jr.
+                </h3>
+
+                <span class="team-role">
+                    Leader
+                </span>
+
+            </article>
+
+
+            <!-- GRACE -->
+
+            <article class="team-card">
+
+                <img
+                    src="Grace.jpeg"
+                    alt="Gracely S. Villacorta"
+                    class="team-photo">
+
+                <h3>
+                    Gracely S. Villacorta
+                </h3>
+
+                <span class="team-role">
+                    HTML/CSS Coder
+                </span>
+
+            </article>
+
+
+            <!-- MARIA -->
+
+            <article class="team-card">
+
+                <img
+                    src="Maria.jpg"
+                    alt="Maria Nhoella Panugan"
+                    class="team-photo">
+
+                <h3>
+                    Maria Nhoella Panugan
+                </h3>
+
+                <span class="team-role">
+                    Research
+                </span>
+
+            </article>
+
+
+            <!-- XIANEARL -->
+
+            <article class="team-card">
+
+                <img
+                    src="Labiste.jpg"
+                    alt="Xianearl Labiste"
+                    class="team-photo">
+
+                <h3>
+                    Xianearl Labiste
+                </h3>
+
+                <span class="team-role">
+                    Paraphrase
+                </span>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="sources"
+         id="sources">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            Research & References
+        </div>
+
+
+        <h2 class="section-title">
+            Explore the evidence.
+        </h2>
+
+
+        <p class="section-description">
+            The information presented on this website is supported
+            by research, academic publications, organizations, and
+            technology providers.
+        </p>
+
+
+        <div class="source-grid">
+
+
+            <div class="source">
+
+                <span>
+                    CLIMATE SCIENCE
+                </span>
+
+                <a href="https://www.youtube.com/watch?v=M25AWv7cmLU"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    UNFCCC Climate Science Briefing →
+
+                </a>
+
+            </div>
+
+
+
+            <div class="source">
+
+                <span>
+                    BUSINESS SUSTAINABILITY
+                </span>
+
+                <a href="https://dobetter.esade.edu/en/business-sustainability-trends"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    Esade Do Better Insights →
+
+                </a>
+
+            </div>
+
+
+
+            <div class="source">
+
+                <span>
+                    PEER-REVIEWED RESEARCH
+                </span>
+
+                <a href="https://www.mdpi.com/2071-1050/17/6"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    MDPI Sustainability Journal →
+
+                </a>
+
+            </div>
+
+
+
+            <div class="source">
+
+                <span>
+                    CARBON CAPTURE TECHNOLOGY
+                </span>
+
+                <a href="https://uop.honeywell.com/en/industry-solutions/gas-processing/gas-treating/co2-fractionation"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    Honeywell UOP CO₂ Fractionation →
+
+                </a>
+
+            </div>
+
+
+
+            <div class="source">
+
+                <span>
+                    RESEARCH STRUCTURE
+                </span>
+
+                <a href="https://www.enago.com/academy/how-can-you-create-structured-research-paper-outline/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    Enago Academy Research Guidelines →
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    <div class="footer-title">
+        Environmental Protection & Technology
+    </div>
+
+
+    <p>
+        Innovation for a cleaner, smarter, and more sustainable future.
+    </p>
+
+
+    <p>
+        Grade 12 Empowerment Technologies • 2026
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
