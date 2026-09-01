@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Environmental Protection and Technology - Exploring how technology can help protect our environment and create a sustainable future.">
-<title>Environmental Protection & Technology</title>
+<title>Green Future — Environmental Protection & Technology</title>
 
 <style>
 *{
@@ -15,30 +15,42 @@
 }
 
 :root{
-    --dark:#062719;
-    --dark2:#0b3a27;
-    --forest:#125338;
-    --green:#218657;
-    --mint:#a9e5c3;
-    --light:#e7f4eb;
-    --cream:#f7faf7;
+    --ink:#09251a;
+    --deep:#073b28;
+    --forest:#0d6844;
+    --green:#28a86b;
+    --lime:#b9ef75;
+    --mint:#c9f7d9;
+    --cream:#f8f8ef;
+    --paper:#fffef8;
     --white:#fff;
-    --text:#18352a;
-    --muted:#60756a;
-    --gold:#e1c36b;
+    --yellow:#ffe27a;
+    --orange:#ffb866;
+    --pink:#ff9fae;
+    --blue:#91d8ff;
+    --muted:#64766c;
+    --line:#dce8df;
 }
 
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:var(--cream);
-    color:var(--text);
-    line-height:1.7;
+    color:var(--ink);
+    line-height:1.6;
     overflow-x:hidden;
 }
 
 ::selection{
-    background:var(--mint);
-    color:var(--dark);
+    background:var(--lime);
+    color:var(--ink);
+}
+
+a{
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
 }
 
 .scroll-progress{
@@ -46,60 +58,72 @@ body{
     top:0;
     left:0;
     width:0;
-    height:4px;
-    background:var(--mint);
-    z-index:3000;
+    height:5px;
+    background:linear-gradient(90deg,var(--lime),var(--green),var(--blue));
+    z-index:9999;
+}
+
+.cursor-glow{
+    position:fixed;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(185,239,117,.12);
+    filter:blur(45px);
+    pointer-events:none;
+    z-index:-1;
+    transform:translate(-50%,-50%);
 }
 
 nav{
-    position:sticky;
-    top:0;
-    z-index:2000;
-    width:100%;
+    position:fixed;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1100px,94%);
+    z-index:5000;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow-x:auto;
-    white-space:nowrap;
-    padding:14px 15px;
-    background:rgba(6,39,25,.94);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(255,255,255,.1);
+    gap:5px;
+    padding:10px;
+    background:rgba(6,39,25,.88);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:50px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 15px 45px rgba(0,0,0,.18);
 }
 
 nav a{
+    position:relative;
     color:white;
     text-decoration:none;
-    font-size:12px;
+    font-size:10px;
     font-weight:bold;
-    letter-spacing:1px;
-    margin:0 12px;
-    opacity:.82;
+    letter-spacing:1.3px;
+    padding:11px 15px;
+    border-radius:30px;
+    opacity:.72;
     transition:.3s;
-    flex-shrink:0;
 }
 
 nav a:hover,
 nav a.active{
-    color:var(--mint);
+    color:var(--lime);
+    background:rgba(185,239,117,.09);
     opacity:1;
 }
 
-nav a:focus-visible{
-    outline:3px solid var(--gold);
-    outline-offset:4px;
-}
-
 .hero{
-    min-height:720px;
+    min-height:100vh;
     position:relative;
+    overflow:hidden;
     display:flex;
     align-items:center;
-    padding:100px 8%;
+    padding:150px 7% 90px;
     color:white;
-    overflow:hidden;
     background:
-        linear-gradient(105deg,rgba(4,29,19,.95),rgba(8,65,42,.78),rgba(8,65,42,.35)),
+        linear-gradient(120deg,rgba(3,25,16,.96),rgba(5,68,43,.77),rgba(7,82,48,.38)),
         url("Yes.JPG");
     background-size:cover;
     background-position:center;
@@ -108,134 +132,231 @@ nav a:focus-visible{
 .hero::before{
     content:"";
     position:absolute;
-    width:430px;
-    height:430px;
+    width:650px;
+    height:650px;
     border-radius:50%;
-    background:rgba(169,229,195,.16);
-    filter:blur(70px);
-    right:-100px;
-    top:70px;
-    animation:floating 6s ease-in-out infinite;
+    right:-220px;
+    top:-160px;
+    background:rgba(185,239,117,.12);
+    filter:blur(20px);
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    left:-220px;
+    bottom:-220px;
+    background:rgba(145,216,255,.10);
+    filter:blur(30px);
 }
 
 .hero-content{
     position:relative;
-    z-index:2;
+    z-index:5;
     max-width:850px;
 }
 
 .eyebrow{
-    display:inline-block;
-    padding:8px 15px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 15px;
     border-radius:30px;
-    border:1px solid rgba(255,255,255,.3);
+    border:1px solid rgba(255,255,255,.22);
     background:rgba(255,255,255,.08);
-    backdrop-filter:blur(10px);
-    font-size:11px;
+    backdrop-filter:blur(12px);
+    font-size:10px;
     font-weight:bold;
     letter-spacing:2px;
     text-transform:uppercase;
     margin-bottom:25px;
+    animation:rise .8s ease both;
+}
+
+.eyebrow::before{
+    content:"●";
+    color:var(--lime);
+    animation:pulse 2s infinite;
 }
 
 .hero h1{
-    font-size:clamp(48px,8vw,90px);
-    line-height:.97;
-    letter-spacing:-5px;
-    margin-bottom:30px;
+    font-size:clamp(55px,9vw,125px);
+    line-height:.86;
+    letter-spacing:-3px;
+    margin-bottom:32px;
+    animation:rise .9s .1s ease both;
 }
 
-.hero h1 span{
-    color:var(--mint);
+.hero h1 .green{
+    color:var(--lime);
+    position:relative;
 }
 
-.hero p{
-    max-width:680px;
+.hero h1 .green::after{
+    content:"";
+    position:absolute;
+    left:4px;
+    bottom:-8px;
+    width:80%;
+    height:7px;
+    border-radius:50%;
+    background:var(--yellow);
+    transform:rotate(-2deg);
+}
+
+.hero-description{
+    max-width:650px;
+    color:#dceee3;
     font-size:18px;
-    color:#e0eee5;
-    margin-bottom:35px;
+    margin-bottom:30px;
+    animation:rise .9s .2s ease both;
 }
 
 .hero-buttons{
     display:flex;
-    gap:13px;
+    gap:12px;
     flex-wrap:wrap;
+    animation:rise .9s .3s ease both;
 }
 
 .button{
-    display:inline-block;
-    padding:13px 22px;
-    border-radius:30px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 22px;
+    border-radius:50px;
     text-decoration:none;
     font-weight:bold;
-    transition:.3s;
+    transition:.35s;
 }
 
 .button-primary{
-    background:var(--mint);
-    color:var(--dark);
+    background:var(--lime);
+    color:var(--ink);
+    box-shadow:0 10px 30px rgba(185,239,117,.18);
 }
 
 .button-primary:hover{
-    background:white;
-    transform:translateY(-3px);
+    transform:translateY(-5px) rotate(-1deg);
+    box-shadow:0 18px 40px rgba(185,239,117,.28);
 }
 
 .button-outline{
-    color:white;
-    border:1px solid rgba(255,255,255,.45);
+    border:1px solid rgba(255,255,255,.3);
     background:rgba(255,255,255,.06);
-    backdrop-filter:blur(10px);
+    color:white;
 }
 
 .button-outline:hover{
     background:white;
-    color:var(--dark);
-    transform:translateY(-3px);
+    color:var(--ink);
+    transform:translateY(-5px);
+}
+
+.hero-bubble{
+    position:absolute;
+    z-index:3;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:float 5s ease-in-out infinite;
+}
+
+.bubble-one{
+    width:75px;
+    height:75px;
+    right:13%;
+    top:28%;
+    background:var(--yellow);
+    color:var(--ink);
+    font-size:34px;
+    animation-delay:-1s;
+}
+
+.bubble-two{
+    width:105px;
+    height:105px;
+    right:27%;
+    bottom:18%;
+    background:var(--mint);
+    color:var(--forest);
+    font-size:44px;
+    animation-delay:-3s;
+}
+
+.bubble-three{
+    width:58px;
+    height:58px;
+    right:8%;
+    bottom:28%;
+    background:var(--pink);
+    font-size:25px;
+    animation-delay:-2s;
 }
 
 .hero-stats{
     position:absolute;
-    right:8%;
-    bottom:40px;
-    z-index:3;
+    z-index:5;
+    right:7%;
+    bottom:55px;
     display:flex;
     gap:10px;
 }
 
 .hero-stat{
-    padding:15px 20px;
+    min-width:105px;
+    padding:15px;
+    border-radius:18px;
     text-align:center;
-    border-radius:13px;
-    background:rgba(255,255,255,.09);
-    border:1px solid rgba(255,255,255,.17);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14);
     backdrop-filter:blur(15px);
 }
 
 .hero-stat strong{
     display:block;
-    font-size:24px;
-    color:var(--mint);
+    font-size:27px;
+    color:var(--lime);
 }
 
 .hero-stat span{
     display:block;
+    color:#c9dbd0;
+    font-size:9px;
+    line-height:1.2;
+    margin-top:3px;
+}
+
+.scroll-hint{
+    position:absolute;
+    bottom:30px;
+    left:7%;
+    z-index:4;
     font-size:10px;
-    opacity:.8;
+    letter-spacing:2px;
+    color:#bdd1c5;
+    text-transform:uppercase;
+    animation:bounce 2s infinite;
 }
 
 section{
-    padding:100px 8%;
+    position:relative;
+    padding:110px 7%;
 }
 
 .section-container{
-    max-width:1150px;
+    width:min(1150px,100%);
     margin:auto;
 }
 
 .section-label{
     color:var(--green);
-    font-size:11px;
+    font-size:10px;
     font-weight:bold;
     letter-spacing:3px;
     text-transform:uppercase;
@@ -243,102 +364,184 @@ section{
 }
 
 .section-title{
-    color:var(--dark);
-    font-size:clamp(36px,5vw,58px);
-    line-height:1.08;
-    letter-spacing:-3px;
-    margin-bottom:20px;
+    font-size:clamp(40px,6vw,72px);
+    line-height:.95;
+    letter-spacing:-2px;
+    color:var(--ink);
+    margin-bottom:22px;
 }
 
 .section-description{
-    max-width:720px;
+    max-width:700px;
     color:var(--muted);
+    font-size:16px;
     margin-bottom:45px;
 }
 
-.intro-grid{
+.intro-section{
+    background:var(--cream);
+}
+
+.intro-layout{
     display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:22px;
+    grid-template-columns:1fr 1.15fr;
+    gap:25px;
+    align-items:stretch;
 }
 
-.intro-card{
-    background:white;
-    padding:35px;
-    border-radius:22px;
-    border:1px solid #dfebe3;
-    box-shadow:0 12px 40px rgba(18,75,52,.06);
-    transition:.35s;
-}
-
-.intro-card:hover{
-    transform:translateY(-7px);
-    box-shadow:0 20px 50px rgba(18,75,52,.12);
-}
-
-.intro-card.large{
-    grid-row:span 2;
-}
-
-.intro-card h3{
-    color:var(--forest);
-    font-size:24px;
-    margin-bottom:17px;
-}
-
-.intro-card p{
-    color:#52655b;
-    margin-bottom:15px;
-}
-
-.intro-card a{
-    color:var(--green);
-    font-weight:bold;
-}
-
-.image-box{
-    height:430px;
-    margin-top:45px;
+.intro-main{
     position:relative;
+    min-height:490px;
+    padding:40px;
+    border-radius:30px;
     overflow:hidden;
-    border-radius:26px;
-    box-shadow:0 20px 60px rgba(10,40,25,.17);
-}
-
-.image-box img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform .7s;
-}
-
-.image-box:hover img{
-    transform:scale(1.06);
-}
-
-.image-caption{
-    position:absolute;
-    left:20px;
-    right:20px;
-    bottom:20px;
-    padding:17px 20px;
+    background:var(--deep);
     color:white;
-    border-radius:13px;
-    background:rgba(5,30,20,.68);
-    backdrop-filter:blur(13px);
 }
 
-.image-source{
-    display:block;
-    margin-top:5px;
-    color:var(--mint);
+.intro-main::before{
+    content:"01";
+    position:absolute;
+    right:-10px;
+    bottom:-55px;
+    font-size:190px;
+    line-height:1;
+    font-weight:900;
+    color:rgba(255,255,255,.05);
+}
+
+.intro-main h3{
+    position:relative;
+    z-index:2;
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.intro-main p{
+    position:relative;
+    z-index:2;
+    color:#c7ddd0;
+    margin-bottom:18px;
+}
+
+.source-link{
+    display:inline-block;
+    position:relative;
+    z-index:3;
+    margin-top:10px;
+    color:var(--lime);
     font-size:12px;
+    font-weight:bold;
     text-decoration:none;
 }
 
-.big-picture{
-    background:var(--dark);
+.intro-side{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.mini-card{
+    padding:28px;
+    border-radius:25px;
+    background:white;
+    border:1px solid var(--line);
+    transition:.35s;
+    overflow:hidden;
+    position:relative;
+}
+
+.mini-card:hover{
+    transform:translateY(-8px) rotate(1deg);
+    box-shadow:0 20px 50px rgba(18,75,52,.12);
+}
+
+.mini-card:nth-child(1){
+    background:#e4f6d8;
+}
+
+.mini-card:nth-child(2){
+    background:#fff1c7;
+}
+
+.mini-card h3{
+    color:var(--forest);
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.mini-card p{
+    color:#52655b;
+    font-size:14px;
+}
+
+.mini-card .number{
+    font-size:45px;
+    font-weight:900;
+    color:rgba(9,37,26,.13);
+    line-height:1;
+    margin-bottom:15px;
+}
+
+.image-stage{
+    margin-top:25px;
+    height:450px;
+    border-radius:32px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 25px 70px rgba(10,40,25,.16);
+}
+
+.image-stage img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1s;
+}
+
+.image-stage:hover img{
+    transform:scale(1.07);
+}
+
+.image-stage-caption{
+    position:absolute;
+    left:25px;
+    right:25px;
+    bottom:25px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(5,30,20,.7);
+    backdrop-filter:blur(15px);
     color:white;
+}
+
+.image-stage-caption strong{
+    display:block;
+    font-size:20px;
+    margin-bottom:5px;
+}
+
+.image-stage-caption a{
+    color:var(--lime);
+    text-decoration:none;
+    font-size:11px;
+}
+
+.big-picture{
+    background:var(--ink);
+    color:white;
+    overflow:hidden;
+}
+
+.big-picture::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    right:-250px;
+    top:50px;
+    background:rgba(185,239,117,.08);
 }
 
 .big-picture .section-title{
@@ -346,316 +549,460 @@ section{
 }
 
 .big-picture .section-description{
-    color:#bfd2c6;
+    color:#b9cec1;
 }
 
-.key-grid{
+.tech-map{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    gap:15px;
+    position:relative;
+    z-index:2;
 }
 
-.key-card{
-    min-height:200px;
-    padding:28px;
-    border-radius:19px;
+.map-card{
+    min-height:225px;
+    padding:27px;
+    border-radius:25px;
     border:1px solid rgba(255,255,255,.1);
-    background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+    background:rgba(255,255,255,.055);
     transition:.35s;
+    position:relative;
+    overflow:hidden;
 }
 
-.key-card:hover{
-    transform:translateY(-8px);
-    background:rgba(255,255,255,.12);
+.map-card::after{
+    content:"";
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    right:-45px;
+    bottom:-45px;
+    background:var(--card-color);
+    opacity:.18;
+    transition:.5s;
 }
 
-.key-number{
-    color:var(--mint);
-    font-size:12px;
-    font-weight:bold;
+.map-card:hover{
+    transform:translateY(-10px) rotate(-1deg);
+    background:rgba(255,255,255,.10);
+}
+
+.map-card:hover::after{
+    transform:scale(1.7);
+}
+
+.map-number{
+    font-size:10px;
     letter-spacing:2px;
+    color:var(--lime);
+    font-weight:bold;
 }
 
-.key-card h3{
-    color:white;
-    font-size:21px;
-    margin:24px 0 10px;
+.map-icon{
+    font-size:37px;
+    margin:18px 0 12px;
 }
 
-.key-card p{
-    color:#bfd2c6;
-    font-size:14px;
+.map-card h3{
+    font-size:20px;
+    margin-bottom:7px;
 }
 
-.body-section{
-    background:#f4f8f5;
+.map-card p{
+    color:#afc6b8;
+    font-size:13px;
 }
 
-.tech-intro{
+.tech-section{
+    background:#f0f7f2;
+}
+
+.tech-heading{
     display:flex;
     justify-content:space-between;
     align-items:end;
     gap:30px;
+}
+
+.tech-heading .section-description{
     margin-bottom:45px;
 }
 
-.tech-grid{
+.tech-showcase{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:17px;
+    grid-template-columns:repeat(12,1fr);
+    gap:18px;
 }
 
 .tech-card{
-    min-height:330px;
-    padding:27px 22px;
+    grid-column:span 3;
     background:white;
-    border-radius:21px;
-    border:1px solid #d8e8dd;
-    position:relative;
+    border-radius:27px;
     overflow:hidden;
-    transition:.35s;
+    border:1px solid var(--line);
+    box-shadow:0 8px 25px rgba(18,75,52,.05);
+    transition:.4s cubic-bezier(.22,1,.36,1);
+    cursor:pointer;
+    position:relative;
+}
+
+.tech-card:nth-child(1),
+.tech-card:nth-child(6){
+    grid-column:span 6;
 }
 
 .tech-card:hover{
-    transform:translateY(-9px);
-    box-shadow:0 20px 45px rgba(18,75,52,.13);
-}
-
-.tech-card::before{
-    content:"";
-    position:absolute;
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    background:var(--mint);
-    opacity:.3;
-    right:-60px;
-    top:-60px;
-    transition:.4s;
-}
-
-.tech-card:hover::before{
-    transform:scale(1.7);
-}
-
-.tech-icon{
-    font-size:42px;
-    margin-bottom:23px;
-    position:relative;
-}
-
-.tech-card h3{
-    color:var(--dark);
-    font-size:20px;
-    margin-bottom:12px;
-    position:relative;
-}
-
-.tech-card p{
-    color:var(--muted);
-    font-size:14px;
-    position:relative;
-}
-
-.tech-card a{
-    display:inline-block;
-    margin-top:15px;
-    color:var(--green);
-    font-size:12px;
-    font-weight:bold;
-    text-decoration:none;
-    position:relative;
-}
-
-.tech-image-card{
-    grid-column:span 2;
-    padding:0;
+    transform:translateY(-12px) rotate(.5deg);
+    box-shadow:0 30px 65px rgba(18,75,52,.16);
 }
 
 .tech-image{
+    height:190px;
+    overflow:hidden;
+    position:relative;
+}
+
+.tech-image img{
     width:100%;
-    height:220px;
+    height:100%;
     object-fit:cover;
-    display:block;
+    transition:.7s;
 }
 
-.tech-content{
-    padding:25px;
+.tech-card:hover .tech-image img{
+    transform:scale(1.1);
 }
 
-.tech-tag{
-    color:var(--green);
-    font-size:9px;
+.tech-image::after{
+    content:"CLICK TO EXPLORE →";
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    padding:7px 10px;
+    border-radius:20px;
+    background:rgba(6,39,25,.78);
+    color:white;
+    font-size:8px;
     font-weight:bold;
-    letter-spacing:2px;
+    letter-spacing:1px;
+    opacity:0;
+    transform:translateY(8px);
+    transition:.3s;
 }
 
-.tech-content h3{
-    margin-top:8px;
-    font-size:25px;
+.tech-card:hover .tech-image::after{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.tech-content p{
-    margin-top:10px;
+.tech-body{
+    padding:23px;
+}
+
+.tech-icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.tech-body h3{
+    font-size:21px;
+    line-height:1.1;
+    margin-bottom:10px;
+    color:var(--ink);
+}
+
+.tech-body p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.tech-pill{
+    display:inline-block;
+    margin-top:16px;
+    padding:6px 10px;
+    border-radius:20px;
+    background:#e4f6e9;
+    color:var(--forest);
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:1px;
 }
 
 .featured{
-    background:var(--dark);
+    background:var(--deep);
     color:white;
+    overflow:hidden;
 }
 
-.featured-container{
-    max-width:1150px;
-    margin:auto;
+.featured-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:60px;
+    gap:70px;
     align-items:center;
 }
 
-.featured h2{
+.featured .section-title{
     color:white;
-    font-size:clamp(37px,5vw,60px);
-    line-height:1.04;
-    letter-spacing:-3px;
-    margin-bottom:25px;
 }
 
-.featured h2 span{
-    color:var(--mint);
-}
-
-.featured p{
+.featured-copy p{
     color:#bfd2c6;
     margin-bottom:20px;
 }
 
-.featured a{
-    color:var(--mint);
+.orbit{
+    width:430px;
+    height:430px;
+    margin:auto;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.featured-box{
-    padding:40px;
-    border-radius:25px;
+.earth{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 35% 30%,#8ee4ff 0 8%,transparent 9%),
+        radial-gradient(circle at 60% 40%,#36a86b 0 18%,transparent 19%),
+        radial-gradient(circle at 40% 70%,#43b874 0 13%,transparent 14%),
+        linear-gradient(135deg,#58c8f1,#11653f);
+    box-shadow:
+        0 0 35px rgba(91,205,255,.4),
+        0 0 90px rgba(185,239,117,.12);
+    animation:earthSpin 12s linear infinite;
+}
+
+.orbit-ring{
+    position:absolute;
+    width:320px;
+    height:180px;
+    border:1px solid rgba(201,247,217,.3);
+    border-radius:50%;
+    transform:rotate(-25deg);
+    animation:orbitSpin 8s linear infinite;
+}
+
+.orbit-ring.two{
+    width:400px;
+    height:230px;
+    transform:rotate(40deg);
+    animation-duration:12s;
+    animation-direction:reverse;
+}
+
+.orbit-dot{
+    position:absolute;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background:var(--yellow);
+    top:75px;
+    right:65px;
+    box-shadow:0 0 20px var(--yellow);
+}
+
+.orbit-label{
+    position:absolute;
+    bottom:-5px;
+    padding:9px 15px;
+    border-radius:30px;
+    background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(15px);
-}
-
-.capture-number{
-    color:var(--mint);
-    font-size:88px;
-    font-weight:bold;
-    line-height:1;
-}
-
-.capture-label{
-    color:#9eb8aa;
+    color:var(--lime);
     font-size:10px;
+    font-weight:bold;
     letter-spacing:2px;
-    text-transform:uppercase;
 }
 
-.featured-box h3{
-    color:white;
-    margin:25px 0 15px;
+.impact-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+    margin-top:40px;
 }
 
-.featured-box ul{
-    list-style:none;
+.impact{
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
 }
 
-.featured-box li{
-    padding:12px 0;
-    color:#d5e5db;
-    border-bottom:1px solid rgba(255,255,255,.1);
+.impact span{
+    display:block;
+    color:#9eb8aa;
+    font-size:9px;
+    letter-spacing:1px;
+    margin-bottom:9px;
 }
 
-.featured-box li:last-child{
-    border-bottom:none;
+.impact strong{
+    display:block;
+    font-size:27px;
+    color:var(--lime);
+}
+
+.impact-bar{
+    height:5px;
+    margin-top:12px;
+    border-radius:20px;
+    background:rgba(255,255,255,.1);
+    overflow:hidden;
+}
+
+.impact-bar i{
+    display:block;
+    width:var(--width);
+    height:100%;
+    background:var(--lime);
+    border-radius:20px;
 }
 
 .conclusion{
     background:white;
 }
 
-.conclusion-box{
-    padding:50px;
+.conclusion-layout{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:25px;
+}
+
+.conclusion-side{
+    padding:38px;
     border-radius:30px;
-    background:linear-gradient(135deg,#e1f2e7,#f8fbf8);
-    border:1px solid #d6e8dc;
+    background:var(--yellow);
+    position:relative;
+    overflow:hidden;
 }
 
-.conclusion-box h3{
+.conclusion-side::after{
+    content:"✓";
+    position:absolute;
+    right:-20px;
+    bottom:-60px;
+    font-size:200px;
+    font-weight:900;
+    color:rgba(255,255,255,.35);
+}
+
+.conclusion-side h3{
+    font-size:28px;
+    line-height:1.1;
+    margin-bottom:15px;
+}
+
+.conclusion-side p{
+    font-size:14px;
+    color:#5d4d19;
+}
+
+.conclusion-main{
+    padding:38px;
+    border-radius:30px;
+    background:#edf8f1;
+    border:1px solid var(--line);
+}
+
+.conclusion-main h3{
     color:var(--forest);
-    font-size:25px;
-    margin-bottom:14px;
+    font-size:23px;
+    margin-bottom:12px;
 }
 
-.conclusion-box p{
-    color:#52655b;
-    margin-bottom:23px;
+.conclusion-main p{
+    color:var(--muted);
+    margin-bottom:18px;
 }
 
 .thesis{
-    padding:25px;
-    border-left:4px solid var(--green);
-    border-radius:12px;
+    margin-top:20px;
+    padding:23px;
+    border-radius:18px;
     background:white;
-    color:var(--dark);
+    border-left:5px solid var(--green);
+    box-shadow:0 10px 30px rgba(18,75,52,.07);
     font-weight:bold;
-    box-shadow:0 10px 30px rgba(18,75,52,.06);
+    color:var(--ink);
 }
 
 .cta-section{
-    min-height:560px;
+    min-height:620px;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
-    color:white;
+    overflow:hidden;
     background:
-        radial-gradient(circle at 20% 20%,rgba(169,229,195,.18),transparent 30%),
-        radial-gradient(circle at 80% 80%,rgba(169,229,195,.12),transparent 30%),
-        var(--dark);
+        radial-gradient(circle at 15% 20%,rgba(185,239,117,.16),transparent 25%),
+        radial-gradient(circle at 85% 70%,rgba(145,216,255,.12),transparent 25%),
+        var(--ink);
+    color:white;
+}
+
+.cta-section::before,
+.cta-section::after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(185,239,117,.12);
+    border-radius:50%;
+}
+
+.cta-section::before{
+    width:550px;
+    height:550px;
+    animation:slowSpin 25s linear infinite;
+}
+
+.cta-section::after{
+    width:750px;
+    height:750px;
+    animation:slowSpin 35s linear infinite reverse;
 }
 
 .cta-content{
-    max-width:800px;
+    position:relative;
+    z-index:2;
 }
 
 .cta-section .section-label{
-    color:var(--mint);
+    color:var(--lime);
 }
 
 .cta-section h2{
-    font-size:clamp(43px,7vw,78px);
-    line-height:.98;
-    letter-spacing:-4px;
-    margin-bottom:20px;
+    font-size:clamp(50px,8vw,100px);
+    line-height:.87;
+    letter-spacing:-3px;
+    margin-bottom:25px;
 }
 
 .cta-main{
-    color:var(--mint);
-    font-size:27px;
+    color:var(--lime);
+    font-size:28px;
     font-weight:bold;
 }
 
 .cta-line{
-    width:80px;
-    height:2px;
-    background:var(--mint);
-    margin:28px auto;
+    width:100px;
+    height:3px;
+    margin:27px auto;
+    background:var(--yellow);
+    border-radius:20px;
 }
 
 .cta-small{
-    max-width:550px;
+    max-width:570px;
     margin:0 auto 30px;
-    color:#bfd2c6;
+    color:#b9cec1;
 }
 
 .team-section{
-    background:#eef7f1;
+    background:#f2f8f3;
 }
 
 .team-header{
@@ -664,27 +1011,68 @@ section{
     text-align:center;
 }
 
+.team-header .section-description{
+    margin-left:auto;
+    margin-right:auto;
+}
+
 .team-grid{
-    max-width:1100px;
-    margin:auto;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:18px;
+    gap:17px;
 }
 
 .team-card{
-    padding:28px 18px;
-    background:white;
-    border-radius:23px;
-    border:1px solid #dce9e0;
-    box-shadow:0 10px 30px rgba(18,75,52,.07);
+    position:relative;
     text-align:center;
-    transition:.35s;
+    perspective:1300px;
 }
 
-.team-card:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 25px 50px rgba(18,75,52,.14);
+.team-card:nth-child(2n){
+    transform:translateY(20px);
+}
+
+.team-card-inner{
+    position:relative;
+    min-height:330px;
+    transition:transform .7s cubic-bezier(.22,1,.36,1);
+    transform-style:preserve-3d;
+}
+
+.team-card.flipped .team-card-inner{
+    transform:rotateY(180deg);
+}
+
+.team-card-front,
+.team-card-back{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:28px 18px;
+    border-radius:27px;
+    background:white;
+    border:1px solid var(--line);
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    box-shadow:0 8px 25px rgba(18,75,52,.05);
+    transition:box-shadow .35s,border-color .35s;
+    cursor:pointer;
+}
+
+.team-card:hover .team-card-front,
+.team-card:hover .team-card-back{
+    box-shadow:0 25px 55px rgba(18,75,52,.13);
+    border-color:var(--lime);
+}
+
+.team-card-back{
+    transform:rotateY(180deg);
+    background:var(--deep);
+    border-color:var(--deep);
+    color:white;
 }
 
 .team-photo{
@@ -692,309 +1080,534 @@ section{
     height:145px;
     object-fit:cover;
     border-radius:50%;
-    border:5px solid #dff1e6;
+    border:6px solid #e1f3e7;
     margin-bottom:18px;
+    transition:.5s;
 }
 
-.team-card h3{
-    color:var(--dark);
-    font-size:17px;
-    line-height:1.35;
-    margin-bottom:10px;
+.team-card:hover .team-photo{
+    transform:scale(1.08) rotate(4deg);
+    border-color:var(--lime);
+}
+
+.team-card-front h3{
+    font-size:16px;
+    line-height:1.3;
+    color:var(--ink);
+    margin-bottom:11px;
 }
 
 .team-role{
     display:inline-block;
-    padding:6px 12px;
+    padding:6px 11px;
     border-radius:20px;
     background:#ddf3e6;
     color:#17613f;
-    font-size:9px;
+    font-size:8px;
     font-weight:bold;
     letter-spacing:1px;
     text-transform:uppercase;
 }
 
+.flip-hint{
+    margin-top:14px;
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:1px;
+    color:var(--muted);
+    opacity:.65;
+    text-transform:uppercase;
+}
+
+.flip-hint::before{
+    content:"↻ ";
+}
+
+.back-icon{
+    font-size:34px;
+    margin-bottom:14px;
+}
+
+.team-card-back h3{
+    font-size:15px;
+    line-height:1.3;
+    margin-bottom:10px;
+    color:var(--lime);
+}
+
+.team-card-back p{
+    font-size:12px;
+    color:#cfe4d8;
+    line-height:1.5;
+}
+
+.back-tag{
+    margin-top:14px;
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:1px;
+    color:var(--lime);
+    opacity:.8;
+    text-transform:uppercase;
+}
+
 .sources{
-    background:#f4f8f5;
+    background:var(--cream);
 }
 
 .source-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:13px;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
 .source{
-    padding:21px 25px;
+    padding:23px;
+    border-radius:20px;
     background:white;
-    border-radius:14px;
-    border:1px solid #e1eae4;
+    border:1px solid var(--line);
     transition:.3s;
+    overflow:hidden;
 }
 
 .source:hover{
-    transform:translateX(6px);
-    border-color:var(--mint);
+    transform:translateY(-6px) rotate(.5deg);
+    border-color:var(--green);
+    box-shadow:0 15px 35px rgba(18,75,52,.09);
 }
 
 .source span{
     display:block;
-    color:var(--muted);
-    font-size:10px;
-    letter-spacing:1px;
-    margin-bottom:5px;
+    color:#84958b;
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:1.5px;
+    margin-bottom:8px;
 }
 
 .source a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
     color:var(--forest);
     font-weight:bold;
     text-decoration:none;
+    font-size:13px;
+}
+
+.source a .arrow{
+    display:inline-block;
+    transition:transform .3s;
 }
 
 .source a:hover{
-    text-decoration:underline;
+    color:var(--green);
+}
+
+.source a:hover .arrow{
+    transform:translateX(5px);
+}
+
+.back-to-top{
+    position:fixed;
+    right:26px;
+    bottom:26px;
+    z-index:4000;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:none;
+    background:var(--lime);
+    color:var(--ink);
+    font-size:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(18,75,52,.25);
+    opacity:0;
+    transform:translateY(15px) scale(.8);
+    pointer-events:none;
+    transition:opacity .35s,transform .35s;
+}
+
+.back-to-top.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+}
+
+.back-to-top:hover{
+    transform:translateY(-5px) scale(1.08);
+    background:var(--yellow);
+}
+
+.back-to-top svg{
+    width:18px;
+    height:18px;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(2,22,14,.78);
+    backdrop-filter:blur(12px);
+}
+
+.modal.show{
+    display:flex;
+    animation:fadeIn .25s ease;
+}
+
+.modal-box{
+    width:min(650px,100%);
+    max-height:90vh;
+    overflow:auto;
+    border-radius:30px;
+    background:var(--paper);
+    padding:0;
+    position:relative;
+    box-shadow:0 30px 100px rgba(0,0,0,.35);
+    animation:modalIn .4s cubic-bezier(.22,1,.36,1);
+}
+
+.modal-image{
+    height:250px;
+}
+
+.modal-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.modal-content{
+    padding:30px;
+}
+
+.modal-icon{
+    font-size:38px;
+}
+
+.modal-content h2{
+    font-size:35px;
+    line-height:1;
+    margin:8px 0 15px;
+    letter-spacing:-2px;
+}
+
+.modal-content p{
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+.modal-close{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:rgba(0,0,0,.65);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    z-index:2;
 }
 
 footer{
-    padding:60px 8%;
-    background:#061e14;
-    color:white;
+    padding:55px 7%;
     text-align:center;
+    background:#04180f;
+    color:white;
 }
 
 .footer-title{
     font-size:25px;
     font-weight:bold;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 footer p{
-    color:#9eb8aa;
-    font-size:13px;
+    color:#91aa9b;
+    font-size:12px;
     margin:5px;
 }
 
-@keyframes floating{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-25px)}
-}
-
-/* ---------- Hero entrance ---------- */
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    background:rgba(225,195,107,.10);
-    filter:blur(60px);
-    left:-60px;
-    bottom:-80px;
-    animation:floating 8s ease-in-out infinite;
-    animation-delay:-3s;
-}
-
-.hero-content .eyebrow,
-.hero-content h1 .line,
-.hero-content p,
-.hero-content .hero-buttons{
+.reveal{
     opacity:0;
-    transform:translateY(22px);
-    animation:heroRise .8s cubic-bezier(.22,1,.36,1) forwards;
+    transform:translateY(35px);
+    transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1);
 }
 
-.hero-content .eyebrow{animation-delay:.05s}
-.hero-content h1 .line:nth-child(1){animation-delay:.18s}
-.hero-content h1 .line:nth-child(2){animation-delay:.30s}
-.hero-content p{animation-delay:.46s}
-.hero-content .hero-buttons{animation-delay:.60s}
-
-.hero h1 .line{
-    display:block;
-    overflow:hidden;
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
-@keyframes heroRise{
+@keyframes rise{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-.hero h1 span{
-    background:linear-gradient(100deg,var(--mint) 30%,#e7f9ee 45%,var(--mint) 60%);
-    background-size:220% auto;
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:shimmer 5s linear infinite;
-    animation-delay:1.1s;
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(0)}
+    50%{transform:translateY(-20px) rotate(5deg)}
 }
 
-@keyframes shimmer{
-    0%{background-position:0% center}
-    100%{background-position:220% center}
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(8px)}
 }
 
-.hero-stat strong{
-    font-variant-numeric:tabular-nums;
+@keyframes pulse{
+    0%,100%{opacity:1}
+    50%{opacity:.35}
 }
 
-/* ---------- Nav underline ---------- */
-
-nav a{
-    position:relative;
-    padding-bottom:4px;
+@keyframes earthSpin{
+    0%{transform:rotate(0)}
+    100%{transform:rotate(360deg)}
 }
 
-nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-3px;
-    width:0;
-    height:2px;
-    background:var(--mint);
-    transition:width .3s ease;
+@keyframes orbitSpin{
+    0%{transform:rotate(-25deg) rotate(0)}
+    100%{transform:rotate(-25deg) rotate(360deg)}
 }
 
-nav a:hover::after,
-nav a.active::after{
-    width:100%;
+@keyframes slowSpin{
+    from{transform:rotate(0)}
+    to{transform:rotate(360deg)}
 }
 
-/* ---------- Reveal on scroll ---------- */
-
-.reveal{
-    opacity:0;
-    transform:translateY(28px);
-    transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
 }
 
-.reveal.is-visible{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* ---------- Tech card tilt ---------- */
-
-.tech-card{
-    transform-style:preserve-3d;
-    will-change:transform;
-}
-
-.tech-card .tech-icon,
-.tech-card h3,
-.tech-card p,
-.tech-card a,
-.tech-card img{
-    transform:translateZ(18px);
-}
-
-/* ---------- Count-up ---------- */
-
-.hero-stat strong.counted{
-    animation:pop .4s ease;
-}
-
-@keyframes pop{
-    0%{transform:scale(1)}
-    40%{transform:scale(1.18)}
-    100%{transform:scale(1)}
+@keyframes modalIn{
+    from{
+        opacity:0;
+        transform:scale(.9) translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
 }
 
 @media(max-width:1000px){
-    .hero-stats{display:none}
-    .key-grid{grid-template-columns:repeat(2,1fr)}
-    .tech-grid{grid-template-columns:repeat(2,1fr)}
-    .tech-image-card{grid-column:span 2}
-    .team-grid{grid-template-columns:repeat(2,1fr)}
+    nav{
+        width:96%;
+        overflow-x:auto;
+        justify-content:flex-start;
+    }
+
+    .hero-stats{
+        display:none;
+    }
+
+    .intro-layout,
+    .featured-grid,
+    .conclusion-layout{
+        grid-template-columns:1fr;
+    }
+
+    .tech-map{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tech-card,
+    .tech-card:nth-child(1),
+    .tech-card:nth-child(6){
+        grid-column:span 6;
+    }
+
+    .team-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .source-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .orbit{
+        margin-top:20px;
+    }
 }
 
 @media(max-width:700px){
     nav{
-        justify-content:flex-start;
-        padding:12px 8px;
+        top:8px;
+        padding:7px;
     }
 
     nav a{
-        margin:0 8px;
-        font-size:11px;
+        font-size:8px;
+        padding:9px 10px;
     }
 
     section{
-        padding:70px 6%;
+        padding:75px 6%;
     }
 
     .hero{
-        min-height:650px;
-        padding:70px 6%;
+        min-height:760px;
+        padding:130px 6% 80px;
     }
 
     .hero h1{
-        letter-spacing:-3px;
+        font-size:clamp(54px,16vw,90px);
+        letter-spacing:-2px;
     }
 
-    .hero p{
-        font-size:16px;
+    .hero-description{
+        font-size:15px;
     }
 
-    .intro-grid{
+    .bubble-one{
+        right:8%;
+        top:22%;
+        width:55px;
+        height:55px;
+        font-size:25px;
+    }
+
+    .bubble-two{
+        right:15%;
+        bottom:12%;
+        width:75px;
+        height:75px;
+        font-size:32px;
+    }
+
+    .bubble-three{
+        display:none;
+    }
+
+    .scroll-hint{
+        left:6%;
+        bottom:20px;
+    }
+
+    .intro-side{
         grid-template-columns:1fr;
     }
 
-    .intro-card.large{
-        grid-row:auto;
+    .intro-main{
+        min-height:auto;
     }
 
-    .image-box{
-        height:300px;
+    .image-stage{
+        height:330px;
     }
 
-    .key-grid,
-    .tech-grid,
-    .team-grid,
+    .tech-map{
+        grid-template-columns:1fr;
+    }
+
+    .tech-card,
+    .tech-card:nth-child(1),
+    .tech-card:nth-child(6){
+        grid-column:span 12;
+    }
+
+    .tech-image{
+        height:210px;
+    }
+
+    .impact-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .orbit{
+        width:310px;
+        height:310px;
+    }
+
+    .earth{
+        width:140px;
+        height:140px;
+    }
+
+    .orbit-ring{
+        width:240px;
+        height:140px;
+    }
+
+    .orbit-ring.two{
+        width:290px;
+        height:170px;
+    }
+
+    .team-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .team-card:nth-child(2n){
+        transform:none;
+    }
+
+    .team-card-inner{
+        min-height:270px;
+    }
+
+    .team-photo{
+        width:110px;
+        height:110px;
+    }
+
     .source-grid{
         grid-template-columns:1fr;
     }
 
-    .tech-image-card{
-        grid-column:span 1;
-    }
-
-    .problem-block{
-        grid-template-columns:1fr;
-    }
-
-    .tech-intro{
-        display:block;
-    }
-
-    .featured-container{
-        grid-template-columns:1fr;
-        gap:35px;
-    }
-
-    .capture-number{
-        font-size:70px;
-    }
-
-    .conclusion-box{
-        padding:30px 22px;
-    }
-
     .cta-section h2{
-        letter-spacing:-3px;
+        letter-spacing:-2px;
+    }
+
+    .back-to-top{
+        right:16px;
+        bottom:16px;
+        width:46px;
+        height:46px;
+    }
+}
+
+@media(max-width:450px){
+    .team-grid,
+    .impact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .button{
+        width:100%;
     }
 }
 
 @media(prefers-reduced-motion:reduce){
-    *{
-        scroll-behavior:auto!important;
+    *,
+    *::before,
+    *::after{
         animation:none!important;
         transition:none!important;
+        scroll-behavior:auto!important;
     }
 }
 </style>
@@ -1003,36 +1616,55 @@ nav a.active::after{
 <body>
 
 <div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <nav aria-label="Main navigation">
 <a href="#home">HOME</a>
-<a href="#introduction">INTRODUCTION</a>
-<a href="#body">BODY</a>
-<a href="#technology">TECHNOLOGY</a>
+<a href="#introduction">INTRO</a>
+<a href="#body">IMPACT</a>
+<a href="#technology">TECH</a>
 <a href="#conclusion">CONCLUSION</a>
 <a href="#team">TEAM</a>
 <a href="#sources">SOURCES</a>
 </nav>
 
 <header class="hero" id="home">
+
 <div class="hero-content">
-<div class="eyebrow">Grade 12 • Empowerment Technologies</div>
 
-<h1><span class="line">The Future</span><span class="line">Is <span>Green.</span></span></h1>
+<div class="eyebrow">
+Grade 12 • Empowerment Technologies
+</div>
 
-<p>
-Environmental protection and technology can work together to create
-cleaner energy systems, smarter resource management, better monitoring,
-and more sustainable communities.
+<h1>
+A Future<br>
+That's <span class="green">Green.</span>
+</h1>
+
+<p class="hero-description">
+What happens when technology and environmental responsibility
+work together? Explore eight real-world technologies helping us
+understand, protect, and restore our planet.
 </p>
 
 <div class="hero-buttons">
-<a href="#introduction" class="button button-primary">Explore the Research ↓</a>
-<a href="#technology" class="button button-outline">Discover Solutions</a>
-</div>
+<a href="#introduction" class="button button-primary">
+Start Exploring ↓
+</a>
+
+<a href="#technology" class="button button-outline">
+See the Technology →
+</a>
 </div>
 
+</div>
+
+<div class="hero-bubble bubble-one">☀️</div>
+<div class="hero-bubble bubble-two">🌱</div>
+<div class="hero-bubble bubble-three">💧</div>
+
 <div class="hero-stats">
+
 <div class="hero-stat">
 <strong data-count="8">0</strong>
 <span>Technology Solutions</span>
@@ -1044,19 +1676,28 @@ and more sustainable communities.
 </div>
 
 <div class="hero-stat">
-<strong data-count="∞">0</strong>
+<strong>∞</strong>
 <span>Future Possibilities</span>
 </div>
+
 </div>
+
+<div class="scroll-hint">
+↓ Scroll to explore
+</div>
+
 </header>
 
-<section id="introduction">
+
+<section class="intro-section" id="introduction">
+
 <div class="section-container">
 
-<div class="section-label">01 — Introduction</div>
+<div class="section-label">01 — Start Here</div>
 
 <h2 class="section-title">
-Technology for a<br>healthier planet.
+Technology can<br>
+help Earth breathe.
 </h2>
 
 <p class="section-description">
@@ -1066,179 +1707,236 @@ help address these challenges through cleaner energy, environmental
 monitoring, resource conservation, and more efficient waste management.
 </p>
 
-<div class="intro-grid">
+<div class="intro-layout">
 
-<article class="intro-card large reveal">
-<h3>A. Background of the Study</h3>
+<article class="intro-main reveal">
+
+<h3>Why does this matter?</h3>
 
 <p>
 Environmental problems such as pollution, waste, climate change,
-and resource depletion require effective solutions. Technology can
-help address these challenges by providing cleaner energy, improving
-environmental monitoring, conserving resources, and managing waste
-more efficiently.
+and resource depletion require effective solutions.
 </p>
 
 <p>
-The United Nations Environment Programme (UNEP) explains that
-technology can play an important role in addressing environmental
-degradation and challenges such as climate change and waste management.
+Technology can help address these challenges by providing cleaner
+energy, improving environmental monitoring, conserving resources,
+and managing waste more efficiently.
 </p>
 
-<a href="https://www.unep.org/explore-topics/technology/about-technology"
-target="_blank" rel="noopener noreferrer">
+<p>
+The United Nations Environment Programme explains that technology
+can play an important role in addressing environmental degradation
+and challenges such as climate change and waste management.
+</p>
+
+<a class="source-link"
+href="https://www.unep.org/explore-topics/technology/about-technology"
+target="_blank"
+rel="noopener noreferrer">
 UNEP — Technology and the Environment →
 </a>
+
 </article>
 
-<article class="intro-card reveal">
-<h3>B. Statement of the Problem</h3>
+<div class="intro-side">
 
+<article class="mini-card reveal">
+<div class="number">A</div>
+<h3>The Problem</h3>
 <p>
-Protecting the environment requires accurate information and efficient
-management of natural resources. Modern technologies can help collect
-environmental data, reduce resource use, and provide practical solutions
-to environmental problems.
+Protecting the environment requires accurate information and
+efficient management of natural resources.
 </p>
 
-<p>
-The OECD explains that environmental innovation can contribute to
-reducing pollution and improving resource productivity.
-</p>
-
-<a href="https://www.oecd.org/en/topics/sub-issues/economic-and-environmental-outcomes-of-innovation.html"
-target="_blank" rel="noopener noreferrer">
+<a class="source-link"
+href="https://www.oecd.org/en/topics/sub-issues/economic-and-environmental-outcomes-of-innovation.html"
+target="_blank"
+rel="noopener noreferrer">
 OECD — Environmental Innovation →
 </a>
 </article>
 
-<article class="intro-card reveal">
-<h3>C. Significance of Environmental Technology</h3>
-
+<article class="mini-card reveal">
+<div class="number">B</div>
+<h3>The Opportunity</h3>
 <p>
-Environmental technology provides practical methods for reducing
-environmental impacts and improving the use of natural resources.
-These technologies can be applied to energy, agriculture, waste
-management, water, and environmental monitoring.
+Modern technologies can collect environmental data, reduce resource
+use, and provide practical solutions to environmental problems.
 </p>
+</article>
 
+<article class="mini-card reveal">
+<div class="number">C</div>
+<h3>Why Technology?</h3>
 <p>
-UNEP's International Environmental Technology Centre promotes
-environmentally sound technologies and approaches that improve
-resource efficiency and reduce the harmful effects of waste.
+Environmental technologies can support energy, agriculture, waste
+management, water conservation, and monitoring.
 </p>
+</article>
 
-<a href="https://www.unep.org/ietc/resources/factsheet/innovative-environmental-technologies-and-approaches"
-target="_blank" rel="noopener noreferrer">
-UNEP IETC — Environmental Technologies →
-</a>
+<article class="mini-card reveal">
+<div class="number">→</div>
+<h3>Think Bigger</h3>
+<p>
+The goal isn't simply more technology. It is using the right
+technology responsibly and effectively.
+</p>
 </article>
 
 </div>
 
-<div class="image-box reveal">
-<img src="Yess.JPG" alt="Environmental landscape">
-<div class="image-caption">
-Technology becomes more powerful when innovation is designed to
-protect the natural systems that support life.
+</div>
 
-<a class="image-source"
-href="https://share.google/TuyITrqk6hB43sDzX"
-target="_blank" rel="noopener noreferrer">
+<div class="image-stage reveal">
+
+<img src="Yess.JPG" alt="Environmental landscape">
+
+<div class="image-stage-caption">
+<strong>Innovation meets nature.</strong>
+
+Technology becomes more powerful when innovation is designed
+to protect the natural systems that support life.
+
+<br>
+
+<a href="https://share.google/TuyITrqk6hB43sDzX"
+target="_blank"
+rel="noopener noreferrer">
 Image Source →
 </a>
-</div>
+
 </div>
 
 </div>
+
+</div>
+
 </section>
 
+
 <section class="big-picture" id="body">
+
 <div class="section-container">
 
-<div class="section-label" style="color:var(--mint)">02 — The Big Picture</div>
+<div class="section-label" style="color:var(--lime)">
+02 — The Big Picture
+</div>
 
 <h2 class="section-title">
-Eight ways technology<br>can help the planet.
+Eight ideas.<br>
+One planet.
 </h2>
 
 <p class="section-description">
-From renewable energy and satellites to artificial intelligence and
-water reuse, technology can provide practical tools for reducing
+From renewable energy and satellites to artificial intelligence
+and water reuse, technology can provide practical tools for reducing
 environmental impacts and using resources more efficiently.
 </p>
 
-<div class="key-grid">
+<div class="tech-map">
 
-<div class="key-card reveal">
-<div class="key-number">01 / ENERGY</div>
+<div class="map-card reveal" style="--card-color:#ffe27a">
+<div class="map-number">01 / ENERGY</div>
+<div class="map-icon">☀️</div>
 <h3>Renewable Energy</h3>
 <p>Solar and wind technologies provide electricity from renewable sources.</p>
 </div>
 
-<div class="key-card reveal">
-<div class="key-number">02 / MONITORING</div>
+<div class="map-card reveal" style="--card-color:#91d8ff">
+<div class="map-number">02 / MONITORING</div>
+<div class="map-icon">🛰️</div>
 <h3>Satellites</h3>
 <p>Satellite observations help monitor changes across Earth's surface.</p>
 </div>
 
-<div class="key-card reveal">
-<div class="key-number">03 / AGRICULTURE</div>
+<div class="map-card reveal" style="--card-color:#b9ef75">
+<div class="map-number">03 / AGRICULTURE</div>
+<div class="map-icon">🌾</div>
 <h3>Precision Farming</h3>
 <p>Digital tools can improve resource management in agriculture.</p>
 </div>
 
-<div class="key-card reveal">
-<div class="key-number">04 / WASTE</div>
+<div class="map-card reveal" style="--card-color:#ff9fae">
+<div class="map-number">04 / WASTE</div>
+<div class="map-icon">♻️</div>
 <h3>Plastic Recovery</h3>
 <p>Technology can help recover and recycle valuable plastic materials.</p>
 </div>
 
-<div class="key-card reveal">
-<div class="key-number">05 / BIOENERGY</div>
+<div class="map-card reveal" style="--card-color:#ffb866">
+<div class="map-number">05 / BIOENERGY</div>
+<div class="map-icon">⚡</div>
 <h3>Organic Waste</h3>
 <p>Anaerobic digestion can transform organic waste into biogas.</p>
 </div>
 
-<div class="key-card reveal">
-<div class="key-number">06 / AIR</div>
+<div class="map-card reveal" style="--card-color:#91d8ff">
+<div class="map-number">06 / AIR</div>
+<div class="map-icon">🌫️</div>
 <h3>Air Sensors</h3>
 <p>Sensors provide additional information about local air conditions.</p>
 </div>
 
-<div class="key-card reveal">
-<div class="key-number">07 / AI</div>
+<div class="map-card reveal" style="--card-color:#c9f7d9">
+<div class="map-number">07 / AI</div>
+<div class="map-icon">🤖</div>
 <h3>Artificial Intelligence</h3>
 <p>AI can analyze complex environmental information and support decisions.</p>
 </div>
 
-<div class="key-card reveal">
-<div class="key-number">08 / WATER</div>
+<div class="map-card reveal" style="--card-color:#91d8ff">
+<div class="map-number">08 / WATER</div>
+<div class="map-icon">💧</div>
 <h3>Water Reuse</h3>
 <p>Treated water can be reused for appropriate purposes and reduce freshwater pressure.</p>
 </div>
 
 </div>
+
 </div>
+
 </section>
 
-<section class="body-section" id="technology">
+
+<section class="tech-section" id="technology">
+
 <div class="section-container">
 
+<div class="tech-heading">
+
+<div>
 <div class="section-label">03 — Technology in Action</div>
 
 <h2 class="section-title">
-Ways to protect the<br>environment using technology.
+Tap a card.<br>
+Discover an idea.
 </h2>
+</div>
 
 <p class="section-description">
 Explore eight technologies that demonstrate how innovation can
 support environmental protection, conservation, and sustainability.
 </p>
 
-<div class="tech-grid">
+</div>
 
-<article class="tech-card reveal">
+
+<div class="tech-showcase">
+
+
+<article class="tech-card reveal"
+data-title="Using Renewable Energy"
+data-icon="☀️"
+data-image="Solar.JPG"
+data-text="Solar panels, wind turbines, and other renewable-energy technologies can provide electricity from renewable sources. Renewable energy provides alternatives to fossil-fuel-based electricity and supports cleaner energy systems."
+data-source="https://www.iea.org/reports/renewables-2025/renewable-electricity">
+
+<div class="tech-image">
+<img src="Solar.JPG" alt="Solar panels producing renewable energy">
+</div>
+
+<div class="tech-body">
 <div class="tech-icon">☀️</div>
 <h3>Using Renewable Energy</h3>
 
@@ -1247,31 +1945,24 @@ Solar panels, wind turbines, and other renewable-energy technologies
 can provide electricity from renewable sources.
 </p>
 
-<p>
-<b>How it helps:</b> Renewable energy provides alternatives to
-fossil-fuel-based electricity and supports cleaner energy systems.
-</p>
+<span class="tech-pill">CLEAN ENERGY</span>
+</div>
 
-<img src="Solar.JPG"
-alt="Solar panels producing renewable energy"
-style="width:100%;height:130px;object-fit:cover;border-radius:12px;margin-top:15px;">
-
-
-<a href="https://share.google/JC32NJM2VlZE7xoTX"
-target="_blank" rel="noopener noreferrer">
-Image Source →
-</a>
-
-<br>
-
-<a href="https://www.iea.org/reports/renewables-2025/renewable-electricity"
-target="_blank" rel="noopener noreferrer">
-IEA org Source →
-</a>
 </article>
 
 
-<article class="tech-card reveal">
+<article class="tech-card reveal"
+data-title="Using Satellites"
+data-icon="🛰️"
+data-image="Satellite.JPG"
+data-text="Satellites can observe Earth's land, oceans, atmosphere, and other environmental conditions across large areas. Satellite data can help scientists monitor environmental changes and manage natural resources."
+data-source="https://science.nasa.gov/mission/landsat/">
+
+<div class="tech-image">
+<img src="Satellite.JPG" alt="Satellite">
+</div>
+
+<div class="tech-body">
 <div class="tech-icon">🛰️</div>
 <h3>Using Satellites</h3>
 
@@ -1280,28 +1971,24 @@ Satellites can observe Earth's land, oceans, atmosphere, and other
 environmental conditions across large areas.
 </p>
 
-<p><b>How it helps:</b> Satellite data can help scientists monitor
-environmental changes and manage natural resources.</p>
+<span class="tech-pill">EARTH MONITORING</span>
+</div>
 
-<img src="Satellite.JPG"
-alt="Satellite"
-style="width:100%;height:130px;object-fit:cover;border-radius:12px;margin-top:15px;">
-
-
-<a href="https://share.google/JC32NJM2VlZE7xoTX"
-target="_blank" rel="noopener noreferrer">
-Image Source →
-</a>
-
-<br>
-	
-<a href="https://science.nasa.gov/mission/landsat/"
-target="_blank" rel="noopener noreferrer">
-NASA Landsat Source →
-</a>
 </article>
 
-<article class="tech-card reveal">
+
+<article class="tech-card reveal"
+data-title="Precision Agriculture"
+data-icon="🌾"
+data-image="Agriculture.JPG"
+data-text="Remote sensing, drones, GPS, sensors, AI, and digital tools can improve farm management. Precise agricultural inputs can reduce unnecessary resource use and environmental impacts."
+data-source="https://www.fao.org/family-farming/detail/en/c/1738176/">
+
+<div class="tech-image">
+<img src="Agriculture.JPG" alt="Agriculture">
+</div>
+
+<div class="tech-body">
 <div class="tech-icon">🌾</div>
 <h3>Precision Agriculture</h3>
 
@@ -1310,27 +1997,24 @@ Remote sensing, drones, GPS, sensors, AI, and digital tools can
 improve farm management.
 </p>
 
-<p><b>How it helps:</b> Precise agricultural inputs can reduce
-unnecessary resource use and environmental impacts.</p>
+<span class="tech-pill">SMART FARMING</span>
+</div>
 
-<img src="Agriculture.JPG"
-alt="Agriculture"
-style="width:100%;height:130px;object-fit:cover;border-radius:12px;margin-top:15px;">
-
-<a href="https://share.google/bxwuDe4Wj9MGz21M6"
-target="_blank" rel="noopener noreferrer">
-Image Source →
-</a>
-
-<br>
-
-<a href="https://www.fao.org/family-farming/detail/en/c/1738176/"
-target="_blank" rel="noopener noreferrer">
-FAO Source →
-</a>
 </article>
 
-<article class="tech-card reveal">
+
+<article class="tech-card reveal"
+data-title="Reducing Plastic Waste"
+data-icon="♻️"
+data-image="Plastic.JPG"
+data-text="Technology can support the recovery and recycling of plastic materials and help convert waste plastics into useful resources. Material-recovery technologies can reduce plastic disposal and recover useful materials."
+data-source="https://www.unep.org/ietc/resources/report/converting-waste-plastics-resource-compendium-technologies">
+
+<div class="tech-image">
+<img src="Plastic.JPG" alt="Plastic Waste">
+</div>
+
+<div class="tech-body">
 <div class="tech-icon">♻️</div>
 <h3>Reducing Plastic Waste</h3>
 
@@ -1339,27 +2023,24 @@ Technology can support the recovery and recycling of plastic materials
 and help convert waste plastics into useful resources.
 </p>
 
-<p><b>How it helps:</b> Material-recovery technologies can reduce
-plastic disposal and recover useful materials.</p>
+<span class="tech-pill">CIRCULAR ECONOMY</span>
+</div>
 
-<img src="Plastic.JPG"
-alt="Plastic Waste"
-style="width:100%;height:130px;object-fit:cover;border-radius:12px;margin-top:15px;">
-
-<a href="https://share.google/y6oLVGPzoTtw7YJtj"
-target="_blank" rel="noopener noreferrer">
-Image Source →
-</a>
-
-<br>
-
-<a href="https://www.unep.org/ietc/resources/report/converting-waste-plastics-resource-compendium-technologies"
-target="_blank" rel="noopener noreferrer">
-UNEP Source →
-</a>
 </article>
 
-<article class="tech-card reveal">
+
+<article class="tech-card reveal"
+data-title="Organic Waste to Energy"
+data-icon="⚡"
+data-image="Energy.JPG"
+data-text="Anaerobic digestion uses microorganisms to break down organic materials without oxygen and produces biogas. Organic waste can become a useful energy resource while supporting better waste management."
+data-source="https://www.epa.gov/anaerobic-digestion/basic-information-about-anaerobic-digestion">
+
+<div class="tech-image">
+<img src="Energy.JPG" alt="Organic Waste to Energy">
+</div>
+
+<div class="tech-body">
 <div class="tech-icon">⚡</div>
 <h3>Organic Waste to Energy</h3>
 
@@ -1368,27 +2049,24 @@ Anaerobic digestion uses microorganisms to break down organic
 materials without oxygen and produces biogas.
 </p>
 
-<p><b>How it helps:</b> Organic waste can become a useful energy
-resource while supporting better waste management.</p>
+<span class="tech-pill">BIOENERGY</span>
+</div>
 
-<img src="Energy.JPG"
-alt="Organic Waste to Energy"
-style="width:100%;height:130px;object-fit:cover;border-radius:12px;margin-top:15px;">
-
-<a href="https://share.google/Tgx4aZHsT6SAbisAS"
-target="_blank" rel="noopener noreferrer">
-Image Source →
-</a>
-
-<br>
-
-<a href="https://www.epa.gov/anaerobic-digestion/basic-information-about-anaerobic-digestion"
-target="_blank" rel="noopener noreferrer">
-EPA Source →
-</a>
 </article>
 
-<article class="tech-card reveal">
+
+<article class="tech-card reveal"
+data-title="Air-Quality Sensors"
+data-icon="🌫️"
+data-image="Air.JPG"
+data-text="Air-quality sensors measure pollutants and provide information about air conditions in specific locations. Sensor data can help identify pollution patterns and provide additional air-quality information."
+data-source="https://www.epa.gov/air-sensor-toolbox/how-use-air-sensors-air-sensor-guidebook">
+
+<div class="tech-image">
+<img src="Air.JPG" alt="Air-quality sensor">
+</div>
+
+<div class="tech-body">
 <div class="tech-icon">🌫️</div>
 <h3>Air-Quality Sensors</h3>
 
@@ -1397,27 +2075,24 @@ Air-quality sensors measure pollutants and provide information about
 air conditions in specific locations.
 </p>
 
-<p><b>How it helps:</b> Sensor data can help identify pollution
-patterns and provide additional air-quality information.</p>
+<span class="tech-pill">AIR QUALITY</span>
+</div>
 
-<img src="Air.JPG"
-alt="Air-quality sensor"
-style="width:100%;height:130px;object-fit:cover;border-radius:12px;margin-top:15px;">
-
-<a href="https://share.google/TCeKEc6bhtBeJCge6"
-target="_blank" rel="noopener noreferrer">
-Image Source →
-</a>
-
-<br>
-
-<a href="https://www.epa.gov/air-sensor-toolbox/how-use-air-sensors-air-sensor-guidebook"
-target="_blank" rel="noopener noreferrer">
-EPA Air Sensor Guide →
-</a>
 </article>
 
-<article class="tech-card reveal">
+
+<article class="tech-card reveal"
+data-title="Artificial Intelligence"
+data-icon="🤖"
+data-image="Ai.JPG"
+data-text="AI can process large amounts of information and can be applied to environmental monitoring and sustainability-related activities. AI can assist in analyzing complex environmental data and supporting environmental decisions."
+data-source="https://www.unep.org/resources/report/artificial-intelligence-ai-end-end-environmental-impact-full-ai-lifecycle-needs-be">
+
+<div class="tech-image">
+<img src="Ai.JPG" alt="Artificial Intelligence">
+</div>
+
+<div class="tech-body">
 <div class="tech-icon">🤖</div>
 <h3>Artificial Intelligence</h3>
 
@@ -1426,27 +2101,24 @@ AI can process large amounts of information and can be applied to
 environmental monitoring and sustainability-related activities.
 </p>
 
-<p><b>How it helps:</b> AI can assist in analyzing complex
-environmental data and supporting environmental decisions.</p>
+<span class="tech-pill">SMART DATA</span>
+</div>
 
-<img src="Ai.JPG"
-alt="Artificial Intelligence"
-style="width:100%;height:130px;object-fit:cover;border-radius:12px;margin-top:15px;">
-
-<a href="https://share.google/ZpGmBBGG1n8CYYIeA"
-target="_blank" rel="noopener noreferrer">
-Image Source →
-</a>
-
-<br>
-
-<a href="https://www.unep.org/resources/report/artificial-intelligence-ai-end-end-environmental-impact-full-ai-lifecycle-needs-be"
-target="_blank" rel="noopener noreferrer">
-UNEP AI Report →
-</a>
 </article>
 
-<article class="tech-card reveal">
+
+<article class="tech-card reveal"
+data-title="Recycling & Reusing Water"
+data-icon="💧"
+data-image="Water.JPG"
+data-text="Water-reuse technologies treat wastewater or other used water so it can be used again for appropriate purposes. Water reuse can provide additional supplies, reduce pressure on freshwater resources, and help communities prepare for drought."
+data-source="https://www.epa.gov/waterreuse/basic-information-about-water-reuse">
+
+<div class="tech-image">
+<img src="Water.JPG" alt="Recycling and Reusing Water">
+</div>
+
+<div class="tech-body">
 <div class="tech-icon">💧</div>
 <h3>Recycling & Reusing Water</h3>
 
@@ -1455,40 +2127,33 @@ Water-reuse technologies treat wastewater or other used water so it
 can be used again for appropriate purposes.
 </p>
 
-<p><b>How it helps:</b> Water reuse can provide additional supplies,
-reduce pressure on freshwater resources, and help communities prepare
-for drought.</p>
+<span class="tech-pill">WATER CONSERVATION</span>
+</div>
 
-<img src="Water.JPG"
-alt="Recycling and Reusing Water"
-style="width:100%;height:130px;object-fit:cover;border-radius:12px;margin-top:15px;">
-
-<a href="https://share.google/pePEqApNdApqHI9rH"
-target="_blank" rel="noopener noreferrer">
-Image Source →
-</a>
-
-<br>
-
-<a href="https://www.epa.gov/waterreuse/basic-information-about-water-reuse"
-target="_blank" rel="noopener noreferrer">
-EPA Water Reuse →
-</a>
 </article>
 
 </div>
+
 </div>
+
 </section>
 
+
 <section class="featured">
-<div class="featured-container">
 
-<div>
-<div class="section-label" style="color:var(--mint)">A Connected Future</div>
+<div class="section-container">
 
-<h2>
-Small innovations.<br>
-<strong>Big impact.</strong>
+<div class="featured-grid">
+
+<div class="featured-copy">
+
+<div class="section-label" style="color:var(--lime)">
+A Connected Future
+</div>
+
+<h2 class="section-title">
+One planet.<br>
+Many solutions.
 </h2>
 
 <p>
@@ -1502,39 +2167,88 @@ cleaner systems.
 The goal is not simply to create more technology, but to use
 appropriate technology responsibly and effectively.
 </p>
+
+<div class="impact-grid">
+
+<div class="impact">
+<span>ENERGY</span>
+<strong>01</strong>
+<div class="impact-bar"><i style="--width:92%"></i></div>
 </div>
 
-<div class="featured-box reveal">
-<div class="capture-number">8</div>
-<div class="capture-label">Featured environmental applications</div>
+<div class="impact">
+<span>MONITORING</span>
+<strong>02</strong>
+<div class="impact-bar"><i style="--width:84%"></i></div>
+</div>
 
-<h3>Technology can help us:</h3>
+<div class="impact">
+<span>RESOURCES</span>
+<strong>03</strong>
+<div class="impact-bar"><i style="--width:88%"></i></div>
+</div>
 
-<ul>
-<li>✓ Produce cleaner energy</li>
-<li>✓ Monitor environmental changes</li>
-<li>✓ Improve agricultural efficiency</li>
-<li>✓ Reduce and recover waste</li>
-<li>✓ Turn waste into useful energy</li>
-<li>✓ Monitor air pollution</li>
-<li>✓ Analyze environmental data</li>
-<li>✓ Conserve freshwater resources</li>
-</ul>
+<div class="impact">
+<span>WATER</span>
+<strong>04</strong>
+<div class="impact-bar"><i style="--width:78%"></i></div>
 </div>
 
 </div>
+
+</div>
+
+
+<div class="orbit reveal">
+
+<div class="orbit-ring"></div>
+<div class="orbit-ring two"></div>
+
+<div class="earth"></div>
+
+<div class="orbit-dot"></div>
+
+<div class="orbit-label">
+EVERYTHING IS CONNECTED 🌎
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
+
 <section class="conclusion" id="conclusion">
+
 <div class="section-container">
 
 <div class="section-label">04 — Conclusion</div>
 
 <h2 class="section-title">
-Building a more<br>sustainable future.
+Build the future.<br>
+Don't just wait for it.
 </h2>
 
-<div class="conclusion-box reveal">
+<div class="conclusion-layout">
+
+<div class="conclusion-side reveal">
+
+<h3>
+Technology is a tool.
+How we use it matters.
+</h3>
+
+<p>
+Innovation becomes meaningful when it is guided by responsibility,
+evidence, and a genuine commitment to protecting natural resources.
+</p>
+
+</div>
+
+<div class="conclusion-main reveal">
 
 <h3>A. Synthesis of Main Findings</h3>
 
@@ -1560,27 +2274,37 @@ that can improve resource efficiency and reduce harmful waste impacts.
 
 <h3>B. Final Thought</h3>
 
-<div class="thesis reveal">
+<div class="thesis">
 Technology gives us powerful tools for protecting the environment,
 but its greatest impact comes from how responsibly and effectively
 we choose to use those tools.
 </div>
 
 </div>
+
 </div>
+
+</div>
+
 </section>
 
+
 <section class="cta-section">
+
 <div class="cta-content">
 
-<div class="section-label">One Final Thought</div>
+<div class="section-label">
+One Final Thought
+</div>
 
 <h2>
-The future isn't<br>
-something we wait for.
+The future<br>
+starts with us.
 </h2>
 
-<p class="cta-main">It is something we build.</p>
+<p class="cta-main">
+It is something we build.
+</p>
 
 <div class="cta-line"></div>
 
@@ -1594,78 +2318,172 @@ Explore the Solutions ↑
 </a>
 
 </div>
+
 </section>
 
+
 <section class="team-section" id="team">
+
 <div class="section-container">
 
 <div class="team-header">
-<div class="section-label">05 — The Team</div>
+
+<div class="section-label">
+05 — The Team
+</div>
 
 <h2 class="section-title">
-Meet the minds<br>behind the project.
+Meet the minds<br>
+behind the project.
 </h2>
 
-<p class="section-description" style="margin:0 auto;">
+<p class="section-description">
 A team effort combining leadership, research, content development,
-coding, presentation, and visual resources.
+coding, presentation, and visual resources. Tap a card to flip it.
 </p>
+
 </div>
+
 
 <div class="team-grid">
 
-<article class="team-card reveal">
+<article class="team-card reveal" data-fact="Keeps the whole crew synced, on schedule, and motivated all the way to submission day." data-fact-icon="🧭">
+<div class="team-card-inner">
+<div class="team-card-front">
 <img src="Alex.JPG" alt="Alexander C. Romblon Jr." class="team-photo">
 <h3>Alexander C. Romblon Jr.</h3>
 <span class="team-role">Leader</span>
+<div class="flip-hint">Tap to flip</div>
+</div>
+<div class="team-card-back">
+<div class="back-icon">🧭</div>
+<h3>Alexander C. Romblon Jr.</h3>
+<p>Keeps the whole crew synced, on schedule, and motivated all the way to submission day.</p>
+<div class="back-tag">Leader</div>
+</div>
+</div>
 </article>
 
 <article class="team-card reveal">
+<div class="team-card-inner">
+<div class="team-card-front">
 <img src="Grace.jpeg" alt="Gracely S. Villacorta" class="team-photo">
 <h3>Gracely S. Villacorta</h3>
 <span class="team-role">HTML/CSS Coder</span>
+<div class="flip-hint">Tap to flip</div>
+</div>
+<div class="team-card-back">
+<div class="back-icon">💻</div>
+<h3>Gracely S. Villacorta</h3>
+<p>Turned every idea into real, responsive code — animation by animation, pixel by pixel.</p>
+<div class="back-tag">HTML/CSS Coder</div>
+</div>
+</div>
 </article>
 
 <article class="team-card reveal">
+<div class="team-card-inner">
+<div class="team-card-front">
 <img src="Maria.JPG" alt="Maria Nhoella Panugan" class="team-photo">
 <h3>Maria Nhoella Panugan</h3>
 <span class="team-role">Information Specialist</span>
+<div class="flip-hint">Tap to flip</div>
+</div>
+<div class="team-card-back">
+<div class="back-icon">🔎</div>
+<h3>Maria Nhoella Panugan</h3>
+<p>Dug through UN, NASA, and EPA reports to find every fact behind this page.</p>
+<div class="back-tag">Information Specialist</div>
+</div>
+</div>
 </article>
 
 <article class="team-card reveal">
+<div class="team-card-inner">
+<div class="team-card-front">
 <img src="Labiste.JPG" alt="Xianearl Labiste" class="team-photo">
 <h3>Xianearl Labiste</h3>
 <span class="team-role">Content Editor</span>
+<div class="flip-hint">Tap to flip</div>
+</div>
+<div class="team-card-back">
+<div class="back-icon">✏️</div>
+<h3>Xianearl Labiste</h3>
+<p>Made sure every sentence on this site reads clearly and says exactly what it means.</p>
+<div class="back-tag">Content Editor</div>
+</div>
+</div>
 </article>
 
 <article class="team-card reveal">
+<div class="team-card-inner">
+<div class="team-card-front">
 <img src="Matt.JPG" alt="Matt Raphael M. Caparoso" class="team-photo">
 <h3>Matt Raphael M. Caparoso</h3>
 <span class="team-role">Presenter</span>
+<div class="flip-hint">Tap to flip</div>
+</div>
+<div class="team-card-back">
+<div class="back-icon">🎤</div>
+<h3>Matt Raphael M. Caparoso</h3>
+<p>Brings this project to life in front of the class, turning research into a story.</p>
+<div class="back-tag">Presenter</div>
+</div>
+</div>
 </article>
 
 <article class="team-card reveal">
+<div class="team-card-inner">
+<div class="team-card-front">
 <img src="Glarian.JPG" alt="John Joseph Q. Glarian" class="team-photo">
 <h3>John Joseph Q. Glarian</h3>
 <span class="team-role">Visual Resources</span>
+<div class="flip-hint">Tap to flip</div>
+</div>
+<div class="team-card-back">
+<div class="back-icon">🖼️</div>
+<h3>John Joseph Q. Glarian</h3>
+<p>Sourced and prepared many of the original images featured across the site.</p>
+<div class="back-tag">Visual Resources</div>
+</div>
+</div>
 </article>
 
 <article class="team-card reveal">
+<div class="team-card-inner">
+<div class="team-card-front">
 <img src="Krish.JPG" alt="Krisshna Faith Pasculado" class="team-photo">
 <h3>Krisshna Faith Pasculado</h3>
 <span class="team-role">Visual Resources</span>
+<div class="flip-hint">Tap to flip</div>
+</div>
+<div class="team-card-back">
+<div class="back-icon">🖼️</div>
+<h3>Krisshna Faith Pasculado</h3>
+<p>Helped curate and polish the visuals that bring every section to life.</p>
+<div class="back-tag">Visual Resources</div>
+</div>
+</div>
 </article>
 
 </div>
+
 </div>
+
 </section>
 
+
 <section class="sources" id="sources">
+
 <div class="section-container">
 
-<div class="section-label">06 — Research & References</div>
+<div class="section-label">
+06 — Research & References
+</div>
 
-<h2 class="section-title">Explore the evidence.</h2>
+<h2 class="section-title">
+Explore the evidence.
+</h2>
 
 <p class="section-description">
 The information presented on this website is supported by
@@ -1675,104 +2493,101 @@ environmental research resources.
 
 <div class="source-grid">
 
-<div class="source">
+<div class="source reveal">
 <span>ENVIRONMENTAL TECHNOLOGY</span>
-<a href="https://www.unep.org/explore-topics/technology/about-technology"
-target="_blank" rel="noopener noreferrer">
-United Nations Environment Programme →
+<a href="https://www.unep.org/explore-topics/technology/about-technology" target="_blank" rel="noopener noreferrer">
+United Nations Environment Programme <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>ENVIRONMENTAL INNOVATION</span>
-<a href="https://www.oecd.org/en/topics/sub-issues/economic-and-environmental-outcomes-of-innovation.html"
-target="_blank" rel="noopener noreferrer">
-OECD — Innovation & Environment →
+<a href="https://www.oecd.org/en/topics/sub-issues/economic-and-environmental-outcomes-of-innovation.html" target="_blank" rel="noopener noreferrer">
+OECD — Innovation & Environment <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>ENVIRONMENTAL TECHNOLOGY</span>
-<a href="https://www.unep.org/ietc/resources/factsheet/innovative-environmental-technologies-and-approaches"
-target="_blank" rel="noopener noreferrer">
-UNEP International Environmental Technology Centre →
+<a href="https://www.unep.org/ietc/resources/factsheet/innovative-environmental-technologies-and-approaches" target="_blank" rel="noopener noreferrer">
+UNEP International Environmental Technology Centre <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>RENEWABLE ENERGY</span>
-<a href="https://www.iea.org/reports/renewables-2025/renewable-electricity"
-target="_blank" rel="noopener noreferrer">
-International Energy Agency →
+<a href="https://www.iea.org/reports/renewables-2025/renewable-electricity" target="_blank" rel="noopener noreferrer">
+International Energy Agency <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>SATELLITE MONITORING</span>
-<a href="https://science.nasa.gov/mission/landsat/"
-target="_blank" rel="noopener noreferrer">
-NASA Landsat →
+<a href="https://science.nasa.gov/mission/landsat/" target="_blank" rel="noopener noreferrer">
+NASA Landsat <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>PRECISION AGRICULTURE</span>
-<a href="https://www.fao.org/family-farming/detail/en/c/1738176/"
-target="_blank" rel="noopener noreferrer">
-Food and Agriculture Organization →
+<a href="https://www.fao.org/family-farming/detail/en/c/1738176/" target="_blank" rel="noopener noreferrer">
+Food and Agriculture Organization <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>PLASTIC WASTE</span>
-<a href="https://www.unep.org/ietc/resources/report/converting-waste-plastics-resource-compendium-technologies"
-target="_blank" rel="noopener noreferrer">
-UNEP Plastic Waste Technologies →
+<a href="https://www.unep.org/ietc/resources/report/converting-waste-plastics-resource-compendium-technologies" target="_blank" rel="noopener noreferrer">
+UNEP Plastic Waste Technologies <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>ANAEROBIC DIGESTION</span>
-<a href="https://www.epa.gov/anaerobic-digestion/basic-information-about-anaerobic-digestion"
-target="_blank" rel="noopener noreferrer">
-U.S. EPA →
+<a href="https://www.epa.gov/anaerobic-digestion/basic-information-about-anaerobic-digestion" target="_blank" rel="noopener noreferrer">
+U.S. EPA <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>AIR QUALITY</span>
-<a href="https://www.epa.gov/air-sensor-toolbox/how-use-air-sensors-air-sensor-guidebook"
-target="_blank" rel="noopener noreferrer">
-EPA Air Sensor Guidebook →
+<a href="https://www.epa.gov/air-sensor-toolbox/how-use-air-sensors-air-sensor-guidebook" target="_blank" rel="noopener noreferrer">
+EPA Air Sensor Guidebook <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>ARTIFICIAL INTELLIGENCE</span>
-<a href="https://www.unep.org/resources/report/artificial-intelligence-ai-end-end-environmental-impact-full-ai-lifecycle-needs-be"
-target="_blank" rel="noopener noreferrer">
-UNEP — Artificial Intelligence →
+<a href="https://www.unep.org/resources/report/artificial-intelligence-ai-end-end-environmental-impact-full-ai-lifecycle-needs-be" target="_blank" rel="noopener noreferrer">
+UNEP — Artificial Intelligence <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>WATER REUSE</span>
-<a href="https://www.epa.gov/waterreuse/basic-information-about-water-reuse"
-target="_blank" rel="noopener noreferrer">
-EPA Water Reuse →
+<a href="https://www.epa.gov/waterreuse/basic-information-about-water-reuse" target="_blank" rel="noopener noreferrer">
+EPA Water Reuse <span class="arrow">→</span>
 </a>
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
 <section class="sources" id="image-sources">
+
 <div class="section-container">
 
-<div class="section-label">Image Credits</div>
+<div class="section-label">
+Image Credits
+</div>
 
-<h2 class="section-title">Visual references.</h2>
+<h2 class="section-title">
+Visual references.
+</h2>
 
 <p class="section-description">
 Image sources are provided to acknowledge the visual materials
@@ -1781,91 +2596,85 @@ used throughout the webpage.
 
 <div class="source-grid">
 
-<div class="source">
+<div class="source reveal">
 <span>MAIN ENVIRONMENT IMAGE — Landfill.JPG</span>
-<a href="https://share.google/pcfsBL5UkAiJQdDus"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<a href="https://share.google/pcfsBL5UkAiJQdDus" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>ENVIRONMENTAL IMAGE — Industrial.JPG</span>
-<a href="https://share.google/TuyITrqk6hB43sDzX"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<a href="https://share.google/TuyITrqk6hB43sDzX" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>SOLAR IMAGE — Solar.JPG</span>
-<a href="https://share.google/JC32NJM2VlZE7xoTX"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<a href="https://share.google/JC32NJM2VlZE7xoTX" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>SATELLITE IMAGE — Satellite.JPG</span>
-<a href="https://share.google/QzHbHfuWdiAFqUrJKutm_medium=organic&utm_source=google&utm_campaign=iptcurl"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<a href="https://share.google/QzHbHfuWdiAFqUrJKutm_medium=organic&utm_source=google&utm_campaign=iptcurl" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
+<div class="source reveal">
 <span>AGRICULTURE IMAGE — Agriculture.JPG</span>
-<a href="https://share.google/bxwuDe4Wj9MGz21M6"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<a href="https://share.google/bxwuDe4Wj9MGz21M6" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
-<span>Plastic Waste — Plastic.JPG</span>
-<a href="https://share.google/lFbvpDYY665vBveIc"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<div class="source reveal">
+<span>PLASTIC WASTE — Plastic.JPG</span>
+<a href="https://share.google/lFbvpDYY665vBveIc" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
-<span>Organic Waste to Energy — Energy.JPG</span>
-<a href="https://share.google/Tgx4aZHsT6SAbisAS"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<div class="source reveal">
+<span>ORGANIC WASTE TO ENERGY — Energy.JPG</span>
+<a href="https://share.google/Tgx4aZHsT6SAbisAS" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
-<span>Air Quality — Air.JPG</span>
-<a href="https://share.google/TCeKEc6bhtBeJCge6"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<div class="source reveal">
+<span>AIR QUALITY — Air.JPG</span>
+<a href="https://share.google/TCeKEc6bhtBeJCge6" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
-<span>Artificial Intelligence — Ai.JPG</span>
-<a href="https://share.google/ZpGmBBGG1n8CYYIeA"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<div class="source reveal">
+<span>ARTIFICIAL INTELLIGENCE — Ai.JPG</span>
+<a href="https://share.google/ZpGmBBGG1n8CYYIeA" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
-<div class="source">
-<span>Recycling and Reusing Water — Water.JPG</span>
-<a href="https://share.google/pePEqApNdApqHI9rH"
-target="_blank" rel="noopener noreferrer">
-View Image Source →
+<div class="source reveal">
+<span>RECYCLING AND REUSING WATER — Water.JPG</span>
+<a href="https://share.google/pePEqApNdApqHI9rH" target="_blank" rel="noopener noreferrer">
+View Image Source <span class="arrow">→</span>
 </a>
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
 <footer>
+
 <div class="footer-title">
 Environmental Protection & Technology
 </div>
@@ -1877,125 +2686,407 @@ Innovation for a cleaner, smarter, and more sustainable future.
 <p>
 Grade 12 Empowerment Technologies • 2026
 </p>
+
 </footer>
 
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<line x1="12" y1="19" x2="12" y2="5"></line>
+<polyline points="5 12 12 5 19 12"></polyline>
+</svg>
+</button>
+
+
+<div class="modal" id="techModal">
+
+<div class="modal-box">
+
+<button class="modal-close" id="modalClose" aria-label="Close">
+×
+</button>
+
+<div class="modal-image">
+<img id="modalImage" src="" alt="">
+</div>
+
+<div class="modal-content">
+
+<div class="modal-icon" id="modalIcon"></div>
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalText"></p>
+
+<a id="modalSource"
+class="button button-primary"
+href="#"
+target="_blank"
+rel="noopener noreferrer">
+Read the Source →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
 <script>
+
 const progressBar=document.getElementById("scrollProgress");
 
 window.addEventListener("scroll",()=>{
-    const h=document.documentElement;
-    const scrolled=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
-    progressBar.style.width=scrolled+"%";
+
+const documentHeight=
+document.documentElement.scrollHeight-
+document.documentElement.clientHeight;
+
+const progress=
+documentHeight>0
+?(window.scrollY/documentHeight)*100
+:0;
+
+progressBar.style.width=progress+"%";
+
 });
 
-const sections=document.querySelectorAll("section[id],header[id]");
-const navLinks=document.querySelectorAll("nav a");
 
-const navObserver=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            navLinks.forEach(link=>{
-                link.classList.toggle(
-                    "active",
-                    link.getAttribute("href")==="#"+entry.target.id
-                );
-            });
-        }
-    });
-},{
-    threshold:.35,
-    rootMargin:"-80px 0px -50% 0px"
+const cursorGlow=document.getElementById("cursorGlow");
+
+if(window.matchMedia("(pointer:fine)").matches){
+
+window.addEventListener("mousemove",e=>{
+
+cursorGlow.style.left=e.clientX+"px";
+cursorGlow.style.top=e.clientY+"px";
+
 });
 
-sections.forEach(section=>navObserver.observe(section));
+}
 
-/* ---------- Reveal on scroll (staggered) ---------- */
-
-const revealGroups=new Map();
-document.querySelectorAll(".reveal").forEach(el=>{
-    const parent=el.parentElement;
-    if(!revealGroups.has(parent)) revealGroups.set(parent,[]);
-    revealGroups.get(parent).push(el);
-});
-
-revealGroups.forEach(group=>{
-    group.forEach((el,i)=>{
-        el.style.transitionDelay=(Math.min(i,6)*90)+"ms";
-    });
-});
 
 const revealObserver=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
-        }
-    });
-},{
-    threshold:.15,
-    rootMargin:"0px 0px -60px 0px"
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+revealObserver.unobserve(entry.target);
+
+}
+
 });
 
-document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
+},{
+threshold:.12,
+rootMargin:"0px 0px -50px 0px"
+});
 
-/* ---------- Hero stat count-up ---------- */
 
-function animateCount(el){
-    const target=el.getAttribute("data-count");
-    if(target==="∞"){
-        el.textContent="∞";
-        el.classList.add("counted");
-        return;
-    }
-    const end=parseInt(target,10);
-    const duration=900;
-    const start=performance.now();
+document.querySelectorAll(".reveal").forEach((element,index)=>{
 
-    function tick(now){
-        const progress=Math.min((now-start)/duration,1);
-        el.textContent=Math.round(progress*end);
-        if(progress<1){
-            requestAnimationFrame(tick);
-        }else{
-            el.classList.add("counted");
-        }
-    }
-    requestAnimationFrame(tick);
+element.style.transitionDelay=
+Math.min(index%5,4)*70+"ms";
+
+revealObserver.observe(element);
+
+});
+
+
+const sections=document.querySelectorAll(
+"header[id],section[id]"
+);
+
+const navLinks=document.querySelectorAll("nav a");
+
+function updateActiveNavLink(){
+
+const scanLine=120;
+
+let currentId=sections[0]?sections[0].id:null;
+
+sections.forEach(section=>{
+
+if(section.getBoundingClientRect().top<=scanLine){
+
+currentId=section.id;
+
 }
+
+});
+
+const nearBottom=
+window.innerHeight+window.scrollY>=
+document.documentElement.scrollHeight-2;
+
+if(nearBottom&&sections.length){
+
+currentId=sections[sections.length-1].id;
+
+}
+
+navLinks.forEach(link=>{
+
+link.classList.toggle(
+"active",
+link.getAttribute("href")==="#"+currentId
+);
+
+});
+
+}
+
+window.addEventListener("scroll",updateActiveNavLink,{passive:true});
+window.addEventListener("resize",updateActiveNavLink);
+updateActiveNavLink();
+
+
+function animateNumber(element){
+
+const target=parseInt(
+element.getAttribute("data-count"),
+10
+);
+
+if(isNaN(target)) return;
+
+let start=0;
+
+const duration=1000;
+
+const startTime=performance.now();
+
+function update(currentTime){
+
+const progress=
+Math.min(
+(currentTime-startTime)/duration,
+1
+);
+
+const value=
+Math.floor(progress*target);
+
+element.textContent=value;
+
+if(progress<1){
+
+requestAnimationFrame(update);
+
+}else{
+
+element.textContent=target;
+
+}
+
+}
+
+requestAnimationFrame(update);
+
+}
+
 
 const statObserver=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            animateCount(entry.target);
-            statObserver.unobserve(entry.target);
-        }
-    });
-},{threshold:.6});
 
-document.querySelectorAll(".hero-stat strong[data-count]").forEach(el=>statObserver.observe(el));
+entries.forEach(entry=>{
 
-/* ---------- Tech card tilt ---------- */
+if(entry.isIntersecting){
 
-const isFinePointer=window.matchMedia("(pointer:fine)").matches;
-const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+animateNumber(entry.target);
 
-if(isFinePointer && !reducedMotion){
-    document.querySelectorAll(".tech-card").forEach(card=>{
-        card.style.transition="opacity .7s cubic-bezier(.22,1,.36,1), transform .35s ease, box-shadow .35s ease";
+statObserver.unobserve(entry.target);
 
-        card.addEventListener("mousemove",e=>{
-            const rect=card.getBoundingClientRect();
-            const x=(e.clientX-rect.left)/rect.width-.5;
-            const y=(e.clientY-rect.top)/rect.height-.5;
-            card.style.transform=
-                `perspective(700px) rotateX(${(-y*8).toFixed(2)}deg) rotateY(${(x*8).toFixed(2)}deg) translateY(-9px)`;
-        });
-
-        card.addEventListener("mouseleave",()=>{
-            card.style.transform="";
-        });
-    });
 }
+
+});
+
+},{
+threshold:.7
+});
+
+
+document.querySelectorAll("[data-count]").forEach(element=>{
+statObserver.observe(element);
+});
+
+
+const techCards=document.querySelectorAll(".tech-card");
+
+const modal=document.getElementById("techModal");
+
+const modalImage=document.getElementById("modalImage");
+
+const modalTitle=document.getElementById("modalTitle");
+
+const modalText=document.getElementById("modalText");
+
+const modalIcon=document.getElementById("modalIcon");
+
+const modalSource=document.getElementById("modalSource");
+
+const modalClose=document.getElementById("modalClose");
+
+
+techCards.forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+modalTitle.textContent=
+card.dataset.title;
+
+modalText.textContent=
+card.dataset.text;
+
+modalIcon.textContent=
+card.dataset.icon;
+
+modalImage.src=
+card.dataset.image;
+
+modalImage.alt=
+card.dataset.title;
+
+modalSource.href=
+card.dataset.source;
+
+modal.classList.add("show");
+
+document.body.style.overflow="hidden";
+
+});
+
+});
+
+
+function closeModal(){
+
+modal.classList.remove("show");
+
+document.body.style.overflow="";
+
+}
+
+
+modalClose.addEventListener(
+"click",
+closeModal
+);
+
+
+modal.addEventListener("click",e=>{
+
+if(e.target===modal){
+
+closeModal();
+
+}
+
+});
+
+
+document.addEventListener("keydown",e=>{
+
+if(e.key==="Escape"){
+
+closeModal();
+
+}
+
+});
+
+
+if(window.matchMedia("(pointer:fine)").matches){
+
+document.querySelectorAll(".map-card,.mini-card").forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const rect=
+card.getBoundingClientRect();
+
+const x=
+(e.clientX-rect.left)/rect.width-.5;
+
+const y=
+(e.clientY-rect.top)/rect.height-.5;
+
+card.style.transform=
+`perspective(700px)
+rotateX(${(-y*4).toFixed(2)}deg)
+rotateY(${(x*4).toFixed(2)}deg)
+translateY(-8px)`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="";
+
+});
+
+});
+
+}
+
+
+document.querySelectorAll(".team-card").forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+card.classList.toggle("flipped");
+
+});
+
+});
+
+
+const backToTop=document.getElementById("backToTop");
+
+window.addEventListener("scroll",()=>{
+
+backToTop.classList.toggle(
+"show",
+window.scrollY>window.innerHeight*.8
+);
+
+});
+
+backToTop.addEventListener("click",()=>{
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+
+document.querySelectorAll("a[href^='#']").forEach(link=>{
+
+link.addEventListener("click",e=>{
+
+const target=
+document.querySelector(
+link.getAttribute("href")
+);
+
+if(target){
+
+e.preventDefault();
+
+target.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+});
+
+});
+
 </script>
 
 </body>
